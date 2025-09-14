@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GODSPEED</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #000;
+            overflow: hidden;
+            color: #00ffff;
+            user-select: none;
+        }
+        
+        #gameContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #001122 0%, #000000 100%);
+        }
+        
+        #gameCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: crosshair;
+        }
+        
+        .hud-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .hud-element {
+            position: absolute;
+            color: #00ffff;
+            font-weight: 700;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
+            border: 1px solid #00ffff;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 5px 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .hud-element.warning {
+            color: #ff4444;
+            border-color: #ff4444;
+            text-shadow: 0 0 10px #ff4444;
+            animation: pulse 0.5s infinite alternate;
+        }
+        
+        .hud-element.critical {
+            color: #ff0000;
+            border-color: #ff0000;
+            text-shadow: 0 0 15px #ff0000;
+            animation: criticalPulse 0.2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { opacity: 1; }
+            to { opacity: 0.3; }
+        }
+        
+        @keyframes criticalPulse {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0.5; transform: scale(1.05); }
+        }
+        
+        #topLeft {
+            top: 20px;
+            left: 20px;
+            font-size: 14px;
+        }
+        
+        #topRight {
+            top: 20px;
+            right: 20px;
+            font-size: 14px;
+            text-align: right;
+        }
+        
+        #bottomLeft {
+            bottom: 20px;
+            left: 20px;
+            font-size: 12px;
+        }
+        
+        #bottomRight {
+            bottom: 20px;
+            right: 20px;
+            font-size: 12px;
+            text-align: right;
+        }
+        
+        #centerHUD {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            text-align: center;
+            border: 2px solid #00ffff;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .radar {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #00ffff;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.05);
+        }
+        
+        .radar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 75px;
+            background: #00ffff;
+            transform-origin: bottom;
+            animation: radarSweep 1s linear infinite;
+        }
+        
+        @keyframes radarSweep {
+            from { transform: translate(-50%, -100%) rotate(0deg); }
+            to { transform: translate(-50%, -100%) rotate(360deg); }
+        }
+        
+        .crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #00ffff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px #00ffff;
+        }
+        
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: #00ffff;
+            box-shadow: 0 0 10px #00ffff;
+        }
+        
+        .crosshair::before {
+            top: 50%;
+            left: -10px;
+            right: -10px;
+            height: 2px;
+            transform: translateY(-50%);
+        }
+        
+        .crosshair::after {
+            left: 50%;
+            top: -10px;
+            bottom: -10px;
+            width: 2px;
+            transform: translateX(-50%);
+        }
+        
+        .thruster-indicator {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 20px;
+            border: 1px solid #00ffff;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .thruster-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00ffff, #ffffff);
+            width: 0%;
+            transition: width 0.1s;
+        }
+        
+        #startScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        #startScreen h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px #00ffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 30px #00ffff; }
+            to { text-shadow: 0 0 50px #00ffff, 0 0 80px #0088ff; }
+        }
+        
+        .start-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: transparent;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            cursor: pointer;
+            font-family: 'Orbitron', monospace;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .start-button:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 30px #00ffff;
+        }
+        
+        .controls {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .asteroid-blip {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff4444;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #ff4444;
+        }
+        
+        .speed-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .speed-line {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, #00ffff, transparent);
+            opacity: 0.6;
+            animation: speedLine 0.5s linear infinite;
+        }
+        
+        @keyframes speedLine {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(100vh); }
+        }
+        
+        .sector-info {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: 900;
+            text-align: center;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            animation: sectorAnnounce 3s ease-out;
+        }
+        
+        @keyframes sectorAnnounce {
+            0% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+            20% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+            80% { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+        }
+        
+        #gameOverScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        #gameOverScreen h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px #ff4444;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        #gameOverScreen p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="speed-lines" id="speedLines"></div>
+        
+        <div class="hud-overlay">
+            <div class="hud-element" id="topLeft">
+                <div>VELOCITY: <span id="velocity">0</span> km/s</div>
+                <div>ALTITUDE: <span id="altitude">15,000</span> km</div>
+                <div>HEADING: <span id="heading">0°</span></div>
+                <div>SECTOR: <span id="currentSector">ALPHA-01</span></div>
+            </div>
+            
+            <div class="hud-element" id="topRight">
+                <div>FUEL: <span id="fuel">100</span>%</div>
+                <div>SHIELDS: <span id="shields">100</span>%</div>
+                <div>TEMP: <span id="temperature">298</span>K</div>
+                <div>HULL: <span id="hull">100</span>%</div>
+            </div>
+            
+            <div class="hud-element" id="bottomLeft">
+                <div>THRUST: <span id="thrustPower">0</span>%</div>
+                <div>G-FORCE: <span id="gforce">1.0</span>g</div>
+                <div>ION FLOW: <span id="ionFlow">NOMINAL</span></div>
+                <div>WARP FACTOR: <span id="warpFactor">1.0</span></div>
+            </div>
+            
+            <div class="hud-element" id="bottomRight">
+                <div>SCORE: <span id="score">0</span></div>
+                <div>TIME: <span id="gameTime">00:00</span></div>
+                <div>THREAT LVL: <span id="threatLevel">LOW</span></div>
+                <div>DISTANCE: <span id="distance">0</span> AU</div>
+            </div>
+            
+            <div class="radar">
+                <div id="radarBlips"></div>
+            </div>
+            
+            <div class="crosshair"></div>
+            
+            <div class="thruster-indicator">
+                <div class="thruster-bar" id="thrusterBar"></div>
+            </div>
+        </div>
+        
+        <div id="startScreen">
+            <h1>GODSPEED SPACEBUS</h1>
+            <h2>New Trajectories</h2>
+            <button class="start-button" onclick="startGame()">INITIATE SEQUENCE</button>
+            <div class="controls">
+                <p><strong>FLIGHT CONTROLS:</strong></p>
+                <p>WASD - Maneuver SPACEBUS</p>
+                <p>SHIFT - Ion Boost</p>
+                <p>SPACE - Emergency Brake</p>
+                <p>Mouse - Drag to Rotate View</p>
+                <p><strong>MISSION:</strong> Navigate infinite sectors, evolving challenges, survive the void</p>
+            </div>
+        </div>
+        
+        <div id="gameOverScreen">
+            <h1>MISSION FAILURE</h1>
+            <p>FINAL SCORE: <span id="finalScore">0</span></p>
+            <p>DISTANCE: <span id="finalDistance">0</span> AU</p>
+            <p>SECTOR: <span id="finalSector">ALPHA-01</span></p>
+            <button class="start-button" onclick="location.reload()">RESTART MISSION</button>
+            <a href="intexv2.html" class="start-button">RETURN TO MAIN SITE</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        let scene, camera, renderer, spaceship, particles = [], asteroids = [];
+        let starField, gridSections = [], tunnelSections = [];
+        let gameStarted = false;
+        let keys = {};
+        let velocity = { x: 0, y: 0, z: 0 };
+        let gameSpeed = 1;
+        let score = 0;
+        let gameStartTime = Date.now();
+        let fuel = 100, shields = 100, hull = 100;
+        let thrustPower = 0;
+        let mouseDown = false;
+        let mousePos = { x: 0, y: 0 };
+        let rotationTarget = { x: 0, y: 0 };
+        let distanceTraveled = 0;
+        let currentSector = 1;
+        let difficultyLevel = 1;
+        let lastSectorAnnounce = 0;
+        let warpFactor = 1.0;
+        let environmentPhase = 0;
+        
+        // Audio context for sound effects
+        let audioContext;
+        let oscillators = [];
+        
+        // Sector themes and colors
+        const sectorThemes = [
+            { name: "ALPHA", color: 0x00ffff, ambient: 0x001122 },
+            { name: "BETA", color: 0xff00ff, ambient: 0x220011 },
+            { name: "GAMMA", color: 0x00ff00, ambient: 0x002200 },
+            { name: "DELTA", color: 0xffff00, ambient: 0x222200 },
+            { name: "OMEGA", color: 0xff4444, ambient: 0x220000 }
+        ];
+        
+        function initAudio() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        function playTone(frequency, duration, type = 'sine', volume = 0.1) {
+            if (!audioContext) return;
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = frequency;
+            oscillator.type = type;
+            gainNode.gain.value = volume;
+            
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + duration);
+        }
+        
+        function init() {
+            const canvas = document.getElementById('gameCanvas');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000);
+            
+            // Create spaceship
+            createSpaceship();
+            
+            // Create infinite starfield
+            createInfiniteStarfield();
+            
+            // Create infinite highway system
+            createInfiniteHighway();
+            
+            // Create initial asteroids
+            for (let i = 0; i < 30; i++) {
+                createAsteroid();
+            }
+            
+            camera.position.set(0, 2, 8);
+            camera.lookAt(0, 0, 0);
+            
+            // Event listeners
+            document.addEventListener('keydown', onKeyDown);
+            document.addEventListener('keyup', onKeyUp);
+            canvas.addEventListener('mousedown', onMouseDown);
+            canvas.addEventListener('mousemove', onMouseMove);
+            canvas.addEventListener('mouseup', onMouseUp);
+            window.addEventListener('resize', onWindowResize);
+            
+            // Initialize speed lines
+            initSpeedLines();
+        }
+        
+        function createSpaceship() {
+            const shipGroup = new THREE.Group();
+            
+            // Main body with more detail
+            const bodyGeometry = new THREE.ConeGeometry(0.3, 2, 8);
+            const bodyMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0x00ffff,
+                transparent: true,
+                opacity: 0.9
+            });
+            const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+            body.rotation.x = Math.PI / 2;
+            shipGroup.add(body);
+            
+            // Enhanced wings with glow
+            const wingGeometry = new THREE.BoxGeometry(2.5, 0.1, 0.6);
+            const wingMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0x0088ff,
+                transparent: true,
+                opacity: 0.8
+            });
+            const leftWing = new THREE.Mesh(wingGeometry, wingMaterial);
+            leftWing.position.set(-1.2, 0, -0.5);
+            const rightWing = new THREE.Mesh(wingGeometry, wingMaterial);
+            rightWing.position.set(1.2, 0, -0.5);
+            shipGroup.add(leftWing);
+            shipGroup.add(rightWing);
+            
+            // Multiple thruster effects
+            for (let i = 0; i < 4; i++) {
+                const thrusterGeometry = new THREE.ConeGeometry(0.08, 0.4, 6);
+                const thrusterMaterial = new THREE.MeshBasicMaterial({ 
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.9
+                });
+                const thruster = new THREE.Mesh(thrusterGeometry, thrusterMaterial);
+                thruster.position.set(
+                    (i % 2) * 1 - 0.5, 
+                    Math.floor(i / 2) * 0.2 - 0.1, 
+                    -1.2
+                );
+                thruster.rotation.x = -Math.PI / 2;
+                shipGroup.add(thruster);
+            }
+            
+            spaceship = shipGroup;
+            scene.add(spaceship);
+        }
+        
+        function createInfiniteStarfield() {
+            const starGeometry = new THREE.BufferGeometry();
+            const starCount = 5000;
+            const positions = new Float32Array(starCount * 3);
+            const colors = new Float32Array(starCount * 3);
+            
+            for (let i = 0; i < starCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 4000;
+                positions[i + 1] = (Math.random() - 0.5) * 4000;
+                positions[i + 2] = (Math.random() - 0.5) * 4000;
+                
+                // Varying star colors
+                const brightness = Math.random();
+                colors[i] = brightness;
+                colors[i + 1] = brightness * (0.5 + Math.random() * 0.5);
+                colors[i + 2] = 1;
+            }
+            
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            
+            const starMaterial = new THREE.PointsMaterial({
+                size: 3,
+                transparent: true,
+                opacity: 0.8,
+                vertexColors: true
+            });
+            
+            starField = new THREE.Points(starGeometry, starMaterial);
+            scene.add(starField);
+        }
+        
+        function createInfiniteHighway() {
+            // Create multiple grid sections for infinite scrolling
+            for (let i = 0; i < 10; i++) {
+                createGridSection(i * -100);
+                createTunnelSection(i * -200);
+            }
+        }
+        
+        function createGridSection(zPos) {
+            const gridGroup = new THREE.Group();
+            
+            // Main grid
+            const gridSize = 120;
+            const divisions = 24;
+            const grid = new THREE.GridHelper(gridSize, divisions, getCurrentTheme().color, getCurrentTheme().color);
+            grid.material.opacity = 0.3;
+            grid.material.transparent = true;
+            grid.position.y = -8;
+            gridGroup.add(grid);
+            
+            // Highway barriers
+            const barrierGeometry = new THREE.BoxGeometry(2, 4, 100);
+            const barrierMaterial = new THREE.MeshBasicMaterial({
+                color: getCurrentTheme().color,
+                transparent: true,
+                opacity: 0.2,
+                wireframe: true
+            });
+            
+            for (let side = 0; side < 2; side++) {
+                const barrier = new THREE.Mesh(barrierGeometry, barrierMaterial);
+                barrier.position.set((side * 2 - 1) * 30, 0, 0);
+                gridGroup.add(barrier);
+            }
+            
+            // Energy pillars
+            for (let i = 0; i < 8; i++) {
+                const pillarGeometry = new THREE.CylinderGeometry(0.5, 0.5, 15, 8);
+                const pillarMaterial = new THREE.MeshBasicMaterial({
+                    color: getCurrentTheme().color,
+                    transparent: true,
+                    opacity: 0.4
+                });
+                const pillar = new THREE.Mesh(pillarGeometry, pillarMaterial);
+                pillar.position.set(
+                    (Math.random() - 0.5) * 50,
+                    7,
+                    (i - 4) * 25
+                );
+                gridGroup.add(pillar);
+            }
+            
+            gridGroup.position.z = zPos;
+            scene.add(gridGroup);
+            gridSections.push(gridGroup);
+        }
+        
+        function createTunnelSection(zPos) {
+            const tunnelGroup = new THREE.Group();
+            
+            // Tunnel rings
+            for (let i = 0; i < 20; i++) {
+                const ringGeometry = new THREE.RingGeometry(25, 27, 16);
+                const ringMaterial = new THREE.MeshBasicMaterial({
+                    color: getCurrentTheme().color,
+                    transparent: true,
+                    opacity: 0.1 + Math.random() * 0.2,
+                    side: THREE.DoubleSide
+                });
+                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                ring.position.z = i * -10;
+                ring.rotation.x = Math.PI / 2;
+                tunnelGroup.add(ring);
+            }
+            
+            tunnelGroup.position.z = zPos;
+            scene.add(tunnelGroup);
+            tunnelSections.push(tunnelGroup);
+        }
+        
+        function getCurrentTheme() {
+            const themeIndex = Math.floor(currentSector / 5) % sectorThemes.length;
+            return sectorThemes[themeIndex];
+        }
+        
+        function createAsteroid() {
+            const size = Math.random() * 3 + 1;
+            const asteroidGeometry = new THREE.IcosahedronGeometry(size, Math.floor(Math.random() * 2) + 1);
+            const asteroidMaterial = new THREE.MeshBasicMaterial({
+                color: Math.random() > 0.5 ? 0xff4444 : 0xff8844,
+                wireframe: Math.random() > 0.3,
+                transparent: true,
+                opacity: 0.8 + Math.random() * 0.2
+            });
+            
+            const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
+            asteroid.position.set(
+                (Math.random() - 0.5) * 60,
+                (Math.random() - 0.5) * 30,
+                -Math.random() * 200 - 50
+            );
+            
+            asteroid.rotation.set(
+                Math.random() * Math.PI,
+                Math.random() * Math.PI,
+                Math.random() * Math.PI
+            );
+            
+            asteroid.userData = {
+                rotationSpeed: {
+                    x: (Math.random() - 0.5) * 0.04,
+                    y: (Math.random() - 0.5) * 0.04,
+                    z: (Math.random() - 0.5) * 0.04
+                },
+                size: size
+            };
+            
+            scene.add(asteroid);
+            asteroids.push(asteroid);
+        }
+        
+        function initSpeedLines() {
+            const speedLinesContainer = document.getElementById('speedLines');
+            for (let i = 0; i < 20; i++) {
+                const line = document.createElement('div');
+                line.className = 'speed-line';
+                line.style.left = Math.random() * 100 + '%';
+                line.style.height = Math.random() * 200 + 100 + 'px';
+                line.style.animationDelay = Math.random() * 0.5 + 's';
+                line.style.opacity = '0';
+                speedLinesContainer.appendChild(line);
+            }
+        }
+        
+        function updateSpeedLines() {
+            const speedLines = document.querySelectorAll('.speed-line');
+            const speed = Math.sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
+            const intensity = Math.min(speed * 10, 1);
+            
+            speedLines.forEach(line => {
+                line.style.opacity = intensity * 0.6;
+                line.style.animationDuration = Math.max(0.1, 0.5 - intensity * 0.4) + 's';
+            });
+        }
+        
+        function startGame() {
+            document.getElementById('startScreen').style.display = 'none';
+            gameStarted = true;
+            gameStartTime = Date.now();
+            initAudio();
+            playTone(220, 0.5, 'square', 0.2);
+            animate();
+        }
+        
+        function onKeyDown(event) {
+            keys[event.key.toLowerCase()] = true;
+            if (event.key === ' ') event.preventDefault();
+        }
+        
+        function onKeyUp(event) {
+            keys[event.key.toLowerCase()] = false;
+        }
+        
+        function onMouseDown(event) {
+            mouseDown = true;
+            mousePos.x = event.clientX;
+            mousePos.y = event.clientY;
+        }
+        
+        function onMouseMove(event) {
+            if (mouseDown && gameStarted) {
+                const deltaX = event.clientX - mousePos.x;
+                const deltaY = event.clientY - mousePos.y;
+                
+                rotationTarget.y += deltaX * 0.008;
+                rotationTarget.x += deltaY * 0.008;
+                
+                mousePos.x = event.clientX;
+                mousePos.y = event.clientY;
+            }
+        }
+        
+        function onMouseUp(event) {
+            mouseDown = false;
+        }
+        
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            
+            const canvas = document.getElementById('gameCanvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        function updateMovement() {
+            let thrust = 0;
+            thrustPower = 0;
+            
+            // Enhanced input handling
+            if (keys['w']) {
+                velocity.z -= 0.08 * warpFactor;
+                thrust += 0.4;
+                thrustPower += 40;
+            }
+            if (keys['s']) {
+                velocity.z += 0.04 * warpFactor;
+                thrust += 0.2;
+                thrustPower += 20;
+            }
+            if (keys['a']) {
+                velocity.x -= 0.06 * warpFactor;
+                thrust += 0.25;
+                thrustPower += 25;
+            }
+            if (keys['d']) {
+                velocity.x += 0.06 * warpFactor;
+                thrust += 0.25;
+                thrustPower += 25;
+            }
+            if (keys['shift']) {
+                velocity.z -= 0.15 * warpFactor;
+                thrust += 0.8;
+                thrustPower += 80;
+                if (fuel > 0) fuel -= 0.3;
+                playTone(150 + Math.random() * 100, 0.1, 'sawtooth', 0.08);
+            }
+            if (keys[' ']) {
+                velocity.x *= 0.92;
+                velocity.y *= 0.92;
+                velocity.z *= 0.92;
+                playTone(100, 0.1, 'square', 0.05);
+            }
+            
+            // Progressive physics
+            velocity.x *= 0.985;
+            velocity.y *= 0.985;
+            velocity.z *= 0.997;
+            
+            // Update position
+            spaceship.position.x += velocity.x;
+            spaceship.position.y += velocity.y;
+            spaceship.position.z += velocity.z;
+            
+            // Track distance
+            distanceTraveled += Math.abs(velocity.z);
+            
+            // Smooth rotation with momentum
+            spaceship.rotation.y += (rotationTarget.y - spaceship.rotation.y) * 0.12;
+            spaceship.rotation.x += (rotationTarget.x - spaceship.rotation.x) * 0.12;
+            
+            // Dynamic tilt based on movement
+            spaceship.rotation.z = -velocity.x * 0.5;
+            
+            // Update camera
+            camera.position.x = spaceship.position.x;
+            camera.position.y = spaceship.position.y + 2;
+            camera.position.z = spaceship.position.z + 8;
+            camera.lookAt(spaceship.position);
+            
+            // Update thruster visual
+            const thrusterBar = document.getElementById('thrusterBar');
+            thrusterBar.style.width = Math.min(thrustPower, 100) + '%';
+            
+            // Calculate warp factor based on speed and progression
+            const speed = Math.sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
+            warpFactor = 1 + speed * 0.5 + Math.floor(distanceTraveled / 1000) * 0.1;
+            gameSpeed = Math.min(warpFactor, 5);
+        }
+        
+        function updateInfiniteEnvironment() {
+            // Update starfield position for infinite effect
+            if (starField) {
+                starField.position.z = spaceship.position.z * 0.1;
+            }
+            
+            // Infinite grid sections
+            gridSections.forEach((section, index) => {
+                section.position.z += gameSpeed * 3;
+                
+                if (section.position.z > spaceship.position.z + 50) {
+                    section.position.z -= gridSections.length * 100;
+                    
+                    // Update colors for new sector
+                    section.children.forEach(child => {
+                        if (child.material) {
+                            child.material.color.setHex(getCurrentTheme().color);
+                        }
+                    });
+                }
+            });
+            
+            // Infinite tunnel sections
+            tunnelSections.forEach((section, index) => {
+                section.position.z += gameSpeed * 2;
+                
+                if (section.position.z > spaceship.position.z + 100) {
+                    section.position.z -= tunnelSections.length * 200;
+                    
+                    // Update tunnel colors
+                    section.children.forEach(child => {
+                        if (child.material) {
+                            child.material.color.setHex(getCurrentTheme().color);
+                        }
+                    });
+                }
+            });
+            
+            // Sector progression
+            const newSector = Math.floor(distanceTraveled / 500) + 1;
+            if (newSector > currentSector) {
+                currentSector = newSector;
+                announceSector();
+                difficultyLevel = Math.floor(currentSector / 3) + 1;
+                
+                // Change environment theme
+                environmentPhase = (environmentPhase + 1) % 360;
+                scene.fog = new THREE.Fog(getCurrentTheme().ambient, 50, 300);
+            }
+        }
+        
+        function announceSector() {
+            if (Date.now() - lastSectorAnnounce > 3000) {
+                const theme = getCurrentTheme();
+                const sectorElement = document.createElement('div');
+                sectorElement.className = 'sector-info';
+                sectorElement.innerHTML = `ENTERING SECTOR ${theme.name}-${String(currentSector).padStart(2, '0')}<br>THREAT LEVEL: ${difficultyLevel}`;
+                document.body.appendChild(sectorElement);
+                
+                setTimeout(() => {
+                    if (sectorElement.parentNode) {
+                        sectorElement.parentNode.removeChild(sectorElement);
+                    }
+                }, 3000);
+                
+                lastSectorAnnounce = Date.now();
+                playTone(330 + difficultyLevel * 50, 1, 'triangle', 0.15);
+            }
+        }
+        
+        function updateAsteroids() {
+            // Dynamic asteroid spawning based on difficulty
+            const spawnRate = 0.02 + (difficultyLevel * 0.01) + (warpFactor * 0.005);
+            
+            asteroids.forEach((asteroid, index) => {
+                // Enhanced rotation
+                asteroid.rotation.x += asteroid.userData.rotationSpeed.x * gameSpeed;
+                asteroid.rotation.y += asteroid.userData.rotationSpeed.y * gameSpeed;
+                asteroid.rotation.z += asteroid.userData.rotationSpeed.z * gameSpeed;
+                
+                // Move asteroids with variable speed
+                asteroid.position.z += gameSpeed * (2 + Math.random());
+                
+                // Advanced collision detection
+                const distance = spaceship.position.distanceTo(asteroid.position);
+                const collisionRadius = asteroid.userData.size + 1.5;
+                
+                if (distance < collisionRadius) {
+                    const damage = asteroid.userData.size * 8;
+                    shields -= damage;
+                    hull -= damage * 0.5;
+                    
+                    playTone(60 + Math.random() * 40, 0.4, 'sawtooth', 0.4);
+                    
+                    // Enhanced explosion
+                    createAdvancedExplosion(asteroid.position, asteroid.userData.size);
+                    
+                    scene.remove(asteroid);
+                    asteroids.splice(index, 1);
+                    
+                    // Screen shake effect
+                    camera.position.x += (Math.random() - 0.5) * damage * 0.1;
+                    camera.position.y += (Math.random() - 0.5) * damage * 0.1;
+                }
+                
+                // Remove distant asteroids and award points
+                if (asteroid.position.z > spaceship.position.z + 30) {
+                    scene.remove(asteroid);
+                    asteroids.splice(index, 1);
+                    score += Math.floor(10 * warpFactor);
+                }
+                
+                // Update asteroid colors based on threat level
+                if (Math.random() < 0.01) {
+                    const dangerLevel = Math.min(distance / 20, 1);
+                    const color = dangerLevel < 0.3 ? 0xff0000 : dangerLevel < 0.6 ? 0xff4444 : 0xff8844;
+                    asteroid.material.color.setHex(color);
+                }
+            });
+            
+            // Spawn new asteroids with increasing complexity
+            if (Math.random() < spawnRate) {
+                createAdvancedAsteroid();
+            }
+            
+            // Maintain minimum asteroid count
+            while (asteroids.length < 15 + difficultyLevel * 5) {
+                createAdvancedAsteroid();
+            }
+        }
+        
+        function createAdvancedAsteroid() {
+            const size = Math.random() * (2 + difficultyLevel * 0.5) + 0.8;
+            const complexity = Math.min(Math.floor(difficultyLevel / 2) + 1, 3);
+            
+            const asteroidGeometry = new THREE.IcosahedronGeometry(size, complexity);
+            
+            // Dynamic material based on sector
+            const theme = getCurrentTheme();
+            const baseColor = Math.random() > 0.7 ? theme.color : 0xff4444;
+            
+            const asteroidMaterial = new THREE.MeshBasicMaterial({
+                color: baseColor,
+                wireframe: Math.random() > 0.4,
+                transparent: true,
+                opacity: 0.7 + Math.random() * 0.3
+            });
+            
+            const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
+            
+            // Smart positioning - avoid immediate collisions
+            const spawnRadius = 40 + Math.random() * 20;
+            const angle = Math.random() * Math.PI * 2;
+            
+            asteroid.position.set(
+                Math.cos(angle) * spawnRadius + spaceship.position.x,
+                (Math.random() - 0.5) * 25 + spaceship.position.y,
+                spaceship.position.z - Math.random() * 300 - 100
+            );
+            
+            asteroid.rotation.set(
+                Math.random() * Math.PI,
+                Math.random() * Math.PI,
+                Math.random() * Math.PI
+            );
+            
+            asteroid.userData = {
+                rotationSpeed: {
+                    x: (Math.random() - 0.5) * 0.06 * gameSpeed,
+                    y: (Math.random() - 0.5) * 0.06 * gameSpeed,
+                    z: (Math.random() - 0.5) * 0.06 * gameSpeed
+                },
+                size: size,
+                danger: Math.random() > 0.8
+            };
+            
+            // Add energy glow to dangerous asteroids
+            if (asteroid.userData.danger) {
+                asteroid.material.emissive.setHex(0x440000);
+            }
+            
+            scene.add(asteroid);
+            asteroids.push(asteroid);
+        }
+        
+        function createAdvancedExplosion(position, size) {
+            const particleCount = Math.floor(size * 8);
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particleGeometry = new THREE.SphereGeometry(0.05 + Math.random() * 0.1);
+                const particleColor = Math.random() > 0.5 ? 0xff4444 : Math.random() > 0.5 ? 0xffff44 : 0xff8844;
+                const particleMaterial = new THREE.MeshBasicMaterial({
+                    color: particleColor,
+                    transparent: true,
+                    opacity: 1
+                });
+                
+                const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+                particle.position.copy(position);
+                particle.userData = {
+                    velocity: {
+                        x: (Math.random() - 0.5) * 4,
+                        y: (Math.random() - 0.5) * 4,
+                        z: (Math.random() - 0.5) * 4
+                    },
+                    life: 1.0,
+                    decay: 0.02 + Math.random() * 0.02
+                };
+                
+                scene.add(particle);
+                particles.push(particle);
+            }
+            
+            // Add shockwave ring
+            const ringGeometry = new THREE.RingGeometry(0.1, size * 2, 16);
+            const ringMaterial = new THREE.MeshBasicMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.8,
+                side: THREE.DoubleSide
+            });
+            const shockwave = new THREE.Mesh(ringGeometry, ringMaterial);
+            shockwave.position.copy(position);
+            shockwave.userData = { life: 1.0, decay: 0.05, scale: 1 };
+            
+            scene.add(shockwave);
+            particles.push(shockwave);
+        }
+        
+        function updateParticles() {
+            particles.forEach((particle, index) => {
+                if (particle.userData.velocity) {
+                    // Regular particle movement
+                    particle.position.x += particle.userData.velocity.x;
+                    particle.position.y += particle.userData.velocity.y;
+                    particle.position.z += particle.userData.velocity.z;
+                    
+                    // Apply gravity and drag
+                    particle.userData.velocity.y -= 0.02;
+                    particle.userData.velocity.x *= 0.98;
+                    particle.userData.velocity.y *= 0.98;
+                    particle.userData.velocity.z *= 0.98;
+                }
+                
+                if (particle.userData.scale !== undefined) {
+                    // Shockwave expansion
+                    particle.userData.scale += 0.3;
+                    particle.scale.set(particle.userData.scale, particle.userData.scale, particle.userData.scale);
+                }
+                
+                particle.userData.life -= particle.userData.decay;
+                particle.material.opacity = particle.userData.life;
+                
+                if (particle.userData.life <= 0) {
+                    scene.remove(particle);
+                    particles.splice(index, 1);
+                }
+            });
+        }
+        
+        function updateHUD() {
+            const speed = Math.sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
+            const gameTime = Math.floor((Date.now() - gameStartTime) / 1000);
+            const minutes = Math.floor(gameTime / 60);
+            const seconds = gameTime % 60;
+            const theme = getCurrentTheme();
+            
+            // Update all HUD elements
+            document.getElementById('velocity').textContent = (speed * 100).toFixed(1);
+            document.getElementById('altitude').textContent = (15000 + distanceTraveled * 10).toFixed(0);
+            document.getElementById('heading').textContent = Math.floor((spaceship.rotation.y * 180 / Math.PI) % 360);
+            document.getElementById('currentSector').textContent = `${theme.name}-${String(currentSector).padStart(2, '0')}`;
+            
+            document.getElementById('fuel').textContent = Math.max(0, fuel).toFixed(0);
+            document.getElementById('shields').textContent = Math.max(0, shields).toFixed(0);
+            document.getElementById('hull').textContent = Math.max(0, hull).toFixed(0);
+            document.getElementById('temperature').textContent = (298 + thrustPower * 3 + warpFactor * 10).toFixed(0);
+            
+            document.getElementById('thrustPower').textContent = thrustPower.toFixed(0);
+            document.getElementById('gforce').textContent = (1 + speed * 3 + warpFactor * 0.5).toFixed(1);
+            document.getElementById('ionFlow').textContent = thrustPower > 50 ? 'OVERLOAD' : thrustPower > 30 ? 'ACTIVE' : 'NOMINAL';
+            document.getElementById('warpFactor').textContent = warpFactor.toFixed(1);
+            
+            document.getElementById('score').textContent = score;
+            document.getElementById('distance').textContent = (distanceTraveled / 100).toFixed(1);
+            document.getElementById('gameTime').textContent = 
+                String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+            
+            // Dynamic threat level
+            const asteroidProximity = asteroids.reduce((min, asteroid) => {
+                return Math.min(min, spaceship.position.distanceTo(asteroid.position));
+            }, 100);
+            
+            let threatLevel = 'LOW';
+            if (asteroidProximity < 10) threatLevel = 'CRITICAL';
+            else if (asteroidProximity < 20) threatLevel = 'HIGH';
+            else if (asteroids.length > 20) threatLevel = 'MEDIUM';
+            
+            document.getElementById('threatLevel').textContent = threatLevel;
+            
+            // Warning states with enhanced visuals
+            const topRight = document.getElementById('topRight');
+            const topLeft = document.getElementById('topLeft');
+            const bottomLeft = document.getElementById('bottomLeft');
+            
+            topRight.classList.remove('warning', 'critical');
+            topLeft.classList.remove('warning', 'critical');
+            bottomLeft.classList.remove('warning', 'critical');
+            
+            if (shields < 20 || hull < 20) {
+                topRight.classList.add('critical');
+            } else if (shields < 50 || hull < 50) {
+                topRight.classList.add('warning');
+            }
+            
+            if (fuel < 15) {
+                topRight.classList.add('critical');
+            } else if (fuel < 30) {
+                topRight.classList.add('warning');
+            }
+            
+            if (threatLevel === 'CRITICAL') {
+                topLeft.classList.add('critical');
+            } else if (threatLevel === 'HIGH') {
+                topLeft.classList.add('warning');
+            }
+            
+            if (warpFactor > 4) {
+                bottomLeft.classList.add('warning');
+            }
+            
+            updateRadar();
+            updateSpeedLines();
+        }
+        
+        function updateRadar() {
+            const radarBlips = document.getElementById('radarBlips');
+            radarBlips.innerHTML = '';
+            
+            asteroids.forEach(asteroid => {
+                const distance = spaceship.position.distanceTo(asteroid.position);
+                if (distance < 80) {
+                    const blip = document.createElement('div');
+                    blip.className = 'asteroid-blip';
+                    
+                    const relativePos = asteroid.position.clone().sub(spaceship.position);
+                    const angle = Math.atan2(relativePos.x, relativePos.z);
+                    const radarDistance = Math.min(distance / 80, 1) * 70;
+                    
+                    const x = 75 + Math.sin(angle) * radarDistance;
+                    const y = 75 + Math.cos(angle) * radarDistance;
+                    
+                    blip.style.left = x + 'px';
+                    blip.style.top = y + 'px';
+                    
+                    // Size and color based on threat
+                    if (asteroid.userData.danger || distance < 15) {
+                        blip.style.background = '#ff0000';
+                        blip.style.width = '6px';
+                        blip.style.height = '6px';
+                        blip.style.boxShadow = '0 0 8px #ff0000';
+                    }
+                    
+                    radarBlips.appendChild(blip);
+                }
+            });
+        }
+        
+        function regenerateSystems() {
+            // Slow regeneration when not under stress
+            if (thrustPower < 20 && asteroids.every(a => spaceship.position.distanceTo(a.position) > 15)) {
+                if (shields < 100) shields += 0.1;
+                if (hull < 100) hull += 0.05;
+                if (fuel < 100) fuel += 0.2;
+            }
+        }
+        
+        function gameOver() {
+            gameStarted = false;
+            const finalDistance = (distanceTraveled / 100).toFixed(1);
+            const theme = getCurrentTheme();
+            
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('finalDistance').textContent = finalDistance;
+            document.getElementById('finalSector').textContent = `${theme.name}-${String(currentSector).padStart(2, '0')}`;
+            document.getElementById('gameOverScreen').style.display = 'flex';
+            
+            playTone(150, 2, 'sawtooth', 0.3);
+        }
+        
+        function animate() {
+            if (!gameStarted) return;
+            
+            requestAnimationFrame(animate);
+            
+            updateMovement();
+            updateInfiniteEnvironment();
+            updateAsteroids();
+            updateParticles();
+            updateHUD();
+            regenerateSystems();
+            
+            // Game over conditions
+            if (shields <= 0 || hull <= 0) {
+                gameOver();
+                return;
+            }
+            
+            // Environmental effects
+            renderer.setClearColor(getCurrentTheme().ambient);
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Initialize game
+        init();
+        
+        // Enhanced ambient sounds
+        let ambientSoundTimer = 0;
+        setInterval(() => {
+            if (gameStarted) {
+                ambientSoundTimer++;
+                
+                // Warp drive hum
+                if (warpFactor > 2 && Math.random() < 0.3) {
+                    playTone(80 + warpFactor * 10, 0.3, 'sawtooth', 0.03);
+                }
+                
+                // Sector transition sounds
+                if (ambientSoundTimer % 10 === 0) {
+                    playTone(200 + currentSector * 20, 0.1, 'triangle', 0.02);
+                }
+                
+                // Emergency warnings
+                if (shields < 30 && Math.random() < 0.2) {
+                    playTone(400, 0.1, 'square', 0.05);
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
