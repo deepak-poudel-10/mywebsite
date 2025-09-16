@@ -2824,23 +2824,23 @@
   </div>
 
   <div class="project-card hologram">
-    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Modeling and Analysis Approach</h3>
+    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Modeling and Analysis Methodology</h3>
     <div class="space-y-3">
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Created a 1D beam model using Timoshenko theory to capture bending and shear, validating global deflection against Euler-Bernoulli predictions.</span>
+        <span class="text-sm">Constructed 1D beam model using CBEAM elements in Patran, incorporating Timoshenko theory to account for bending and shear deformations, with clamped conditions at one end and distributed shear load at the other.</span>
       </div>
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Built a 2D shell model with CQUAD4 elements to resolve local effects like flange warping, shear lag, and detailed stress distribution.</span>
+        <span class="text-sm">Developed 2D shell model with CQUAD4 elements based on Mindlin-Reissner theory, enabling detailed capture of in-plane and out-of-plane behaviors, including membrane and shear effects.</span>
       </div>
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Performed mesh convergence studies, showing how solution accuracy stabilizes with refinement, and why engineers choose different model fidelities for different design phases.</span>
+        <span class="text-sm">Performed grid independence study, refining meshes to ensure solution stability, demonstrating how finer discretizations improve accuracy in local stress predictions while 1D models suffice for global responses.</span>
       </div>
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Reflected on trade-offs: 1D models for quick global response, 2D models for local stress insights, and how these decisions impact structural integrity assessment in real aerospace components.</span>
+        <span class="text-sm">Validated FEM outputs against analytical beam theories, highlighting how 1D approaches efficiently model global deflections while 2D captures localized phenomena like shear lag and flange warping.</span>
       </div>
     </div>
     <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
@@ -2849,6 +2849,16 @@
         <img src="./assets/fea/image1ddispacement.png" alt="1D Beam Model Deflection (Fig. 6)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/fea/image1ddispacement.png', '1D Beam Model Deflection (Fig. 6)')">
         <img src="./assets/fea/image1dstress.png" alt="1D Beam Model Stress Distribution (Fig. 7)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/fea/image1dstress.png', '1D Beam Model Stress Distribution (Fig. 7)')">
       </div>
+      <button onclick="slideCarousel('fea-modeling-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('fea-modeling-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="fea-convergence-carousel" style="transform: translateX(0%);">
+        <img src="./assets/fea/convergence1d.png" alt="Convergence Plot of 1D Model (Fig. 4)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/fea/convergence1d.png', 'Convergence Plot of 1D Model (Fig. 4)')">
+        <img src="./assets/fea/convergence2d.png" alt="Convergence Plot of 2D Model (Fig. 5)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/fea/convergence2d.png', 'Convergence Plot of 2D Model (Fig. 5)')">
+      </div>
+      <button onclick="slideCarousel('fea-convergence-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('fea-convergence-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
     </div>
   </div>
 
@@ -3851,6 +3861,7 @@
 </body>
 </html>
 ```
+
 
 
 
