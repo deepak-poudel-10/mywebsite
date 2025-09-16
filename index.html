@@ -746,7 +746,7 @@
   </div>
 
   <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Project Outputs</h3>
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Insights on Hydrogen aircraft design, safety, and regulations</h3>
     <div class="space-y-4">
       <div class="bg-green-900 bg-opacity-20 p-3 rounded">
         <div class="text-sm font-bold">Airframe Files</div>
@@ -971,7 +971,7 @@
   </div>
 
   <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Project Outcomes</h3>
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Insights on Business Jet market and design </h3>
     <div class="space-y-4">
       <div class="bg-green-900 bg-opacity-20 p-3 rounded">
         <div class="text-sm font-bold">Preliminary Sizing</div>
@@ -1448,7 +1448,7 @@
   </div>
 
   <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Outcomes and Insights</h3>
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Innovative Aircraft Design Insights</h3>
     <div class="space-y-4">
       <div class="bg-green-900 bg-opacity-20 p-3 rounded">
         <div class="text-sm font-bold">Baseline Aircraft</div>
@@ -1480,7 +1480,7 @@
       <button onclick="slideCarousel('adm-stability-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
     </div>
     <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request Aircraft Design Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
-    <a href="./assets/adm_presentation.pdf" download class="block mt-2 bg-[var(--success-green)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Download Presentation</a>
+     
   </div>
 </div>
 
@@ -1639,6 +1639,210 @@
     autoSlide('adm-aerodynamics-carousel');
     autoSlide('adm-results-carousel');
     autoSlide('adm-stability-carousel');
+  });
+</script>
+
+<!-- Project: Boundary Layer Transition Analysis for Regional Hybrid/Electric Aircraft -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+  <div class="project-card">
+    <div class="hud-corner tl"></div>
+    <div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div>
+    <div class="hud-corner br"></div>
+    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Optimizing Laminar Flow for Hybrid/Electric Aircraft</h3>
+    <p class="text-sm mb-4">In the Applied Aerodynamics course (MAE107) at ISAE-SUPAERO, I studied how boundary layer transition affects regional hybrid/electric aircraft efficiency. The focus was on Natural Laminar Flow (NLF) wings and their sensitivity to surface contamination like insect impacts.</p>
+    <p class="text-sm mb-4">I built a Python tool to scrape and analyze the UIUC airfoil database through automated XFOIL runs, selecting promising laminar-flow airfoils for integration on an ATR 72-class platform. The goal was to understand both aerodynamic performance and aircraft-level energy implications.</p>
+    <div class="mb-4">
+      <img src="./assets/mae107/image7.png" alt="Semi-Tapered Wing Planform" class="project-image w-full h-48 object-contain rounded border border-[var(--accent-cyan)] cursor-pointer" onclick="openModal('./assets/mae107/image7.png', 'Semi-Tapered Wing Planform')">
+      <p class="text-xs text-center mt-2">Semi-Tapered Wing Planform for Regional Hybrid/Electric Aircraft</p>
+    </div>
+  </div>
+
+  <div class="project-card hologram">
+    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: From Airfoil Screening to Wing-Level Analysis</h3>
+    <div class="space-y-3">
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Automated Python–XFOIL workflow to evaluate laminar-flow airfoils under clean and contaminated conditions.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Assessed boundary layer transition effects on drag, endurance factor, and pressure distribution.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Modeled semi-tapered and tapered wings in XFLR-5 to analyze lift distribution, drag penalties, and endurance improvements.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Linked aerodynamic findings to aircraft-level impacts on power demand, battery sizing, and hybrid system feasibility.</span>
+      </div>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="mae107-analysis-carousel" style="transform: translateX(0%);">
+        <img src="./assets/mae107/image3.png" alt="Aerodynamic Parameters at Trip" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image3.png', 'Aerodynamic Parameters at Trip')">
+        <img src="./assets/mae107/image4.png" alt="Endurance Factor Variation" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image4.png', 'Endurance Factor Variation')">
+        <img src="./assets/mae107/image6.png" alt="Boundary Layer Profiles" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image6.png', 'Boundary Layer Profiles')">
+      </div>
+      <button onclick="slideCarousel('mae107-analysis-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('mae107-analysis-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Aerodynamic Insights & Aircraft-Level Impact</h3>
+    <div class="space-y-4">
+      <div class="bg-green-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Boundary Layer Understanding</div>
+        <div class="text-xs">Showed how contamination trips laminar flow earlier, thickening the boundary layer and raising drag — critical knowledge for hybrid/electric aircraft efficiency.</div>
+      </div>
+      <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Aircraft-Level Benefits</div>
+        <div class="text-xs">Semi-tapered wing with NLF airfoil reduced cruise power demand by ~20%, saving battery mass and extending hybrid range feasibility.</div>
+      </div>
+      <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Innovation & Sustainability</div>
+        <div class="text-xs">Insights support integrating laminar wings with hybrid propulsion, while highlighting design needs like insect-shielding (e.g., Krueger devices) for real-world viability.</div>
+      </div>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="mae107-results-carousel" style="transform: translateX(0%);">
+        <img src="./assets/mae107/image8.png" alt="Endurance Factor vs. AoA" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image8.png', 'Endurance Factor vs. AoA')">
+        <img src="./assets/mae107/image9.png" alt="Battery Mass Impact from Drag Penalties" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image9.png', 'Battery Mass Impact from Drag Penalties')">
+      </div>
+      <button onclick="slideCarousel('mae107-results-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('mae107-results-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request Aerodynamics Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
+  </div>
+</div>
+
+
+
+
+ 
+ 
+<style>
+  .carousel-container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+  }
+  .carousel-item {
+    min-width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+  }
+  .modal-caption {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function slideCarousel(id, direction) {
+    const carousel = document.getElementById(id);
+    let currentTransform = parseInt(carousel.style.transform.replace('translateX(', '').replace('%)', '') || 0);
+    const numItems = carousel.children.length;
+    currentTransform += direction * 100;
+    if (currentTransform < -100 * (numItems - 1)) currentTransform = 0;
+    if (currentTransform > 0) currentTransform = -100 * (numItems - 1);
+    carousel.style.transition = 'transform 0.5s ease-in-out';
+    carousel.style.transform = `translateX(${currentTransform}%)`;
+  }
+
+  function autoSlide(id) {
+    let index = 0;
+    const carousel = document.getElementById(id);
+    const numItems = carousel.children.length;
+    if (numItems <= 1) return; // Skip auto-slide for single-item carousels
+    setInterval(() => {
+      index = (index + 1) % numItems;
+      carousel.style.transition = 'transform 0.5s ease-in-out';
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000);
+  }
+
+  function openModal(src, caption) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    let description = '';
+    switch (caption) {
+      case 'Wing Planform for ATR 72 (Fig. 7)':
+        description = 'This figure illustrates the semi-tapered wing planform designed for an ATR 72-class regional aircraft using XFLR-5, incorporating washout and dihedral. The semi-tapered configuration with washout reduces the angle of attack at the wingtips, delaying tip stall and achieving a maximum endurance factor of 32 at 4° angle of attack, outperforming a fully tapered wing by minimizing lift-induced drag.';
+        break;
+      case 'Aerodynamic Behavior of Airfoils (Fig. 1)':
+        description = 'This plot shows the aerodynamic performance of selected airfoils from the UIUC database at cruise conditions (Re=13M, 6000m altitude, N-factor=9), analyzed using a custom Python script for XFOIL automation. The NLF-416 airfoil was chosen for its high endurance factor (up to 250) and stable flat-peak performance at low angles of attack, ensuring robustness against sudden changes like gusts.';
+        break;
+      case 'Aerodynamic Parameters at Trip (Fig. 3)':
+        description = 'This figure presents the impact of boundary layer tripping at 1%, 3%, 5%, and 10% chord locations on both surfaces of the NLF-416 airfoil, analyzed via XFOIL. It shows changes in lift and drag coefficients, with minimal performance degradation at 1% trip (endurance factor of 155), due to turbulent reattachment, highlighting NLF-416’s suitability for contaminated conditions.';
+        break;
+      case 'Endurance Factor Difference (Fig. 4)':
+        description = 'This plot illustrates the endurance factor (power-to-lift/drag ratio) variation due to boundary layer tripping at various chord locations. At low angles of attack, the endurance factor decreases significantly due to increased skin friction drag, but NLF-416 maintains stability at higher angles via turbulent reattachment, with minimal lift/drag coefficient variation beyond 15% chord.';
+        break;
+      case 'Pressure Distribution at Trip (Fig. 5)':
+        description = 'This figure shows the pressure distribution changes on the NLF-416 airfoil’s upper surface due to forced boundary layer transition at 1%, 3%, 5%, and 10% chord. The NLF-416 exhibits a less pronounced pressure drop compared to other airfoils, maintaining stable aerodynamic efficiency by delaying separation, even under contamination.';
+        break;
+      case 'Boundary Layer Profiles (Fig. 6)':
+        description = 'This plot displays displacement (D*) and momentum (θ) thickness profiles for the NLF-416 airfoil under laminar and turbulent conditions. Forced transition increases both thicknesses, with turbulent flow showing a thicker boundary layer. The NLF-416’s thinner laminar profile enhances efficiency, contributing to reduced drag and power requirements.';
+        break;
+      case 'Endurance Factor vs. Angle of Attack (Fig. 8)':
+        description = 'This 3D analysis in XFLR-5 compares the endurance factor vs. angle of attack for semi-tapered (with washout) and fully tapered (no twist) wings on an ATR 72-class aircraft. The semi-tapered wing achieves a maximum endurance factor of 32 at 4° AoA, outperforming the fully tapered wing by reducing lift-induced drag through elliptical lift distribution.';
+        break;
+      case 'Battery Mass Impact at Trip (Fig. 9)':
+        description = 'This figure quantifies the battery mass increase due to drag penalties from boundary layer tripping at 1% chord, resulting in a 45 kW power increase and 200 kg additional battery mass. For a 1.5 hr mission, the NLF wing saves 760 kg in battery mass (0.22 vs. 0.26 L/D ratio), demonstrating significant efficiency for hybrid propulsion.';
+        break;
+    }
+    modal.innerHTML = `
+      <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+      <img src="${src}" alt="${caption}" class="modal-content">
+      <div class="modal-caption">${caption}<br>${description}</div>
+    `;
+    document.body.appendChild(modal);
+    modal.style.display = 'block';
+  }
+
+  // Initialize auto-slide for project carousels
+  document.addEventListener('DOMContentLoaded', () => {
+    autoSlide('mae107-overview-carousel');
+    autoSlide('mae107-analysis-carousel');
+    autoSlide('mae107-boundary-carousel');
+    autoSlide('mae107-results-carousel');
   });
 </script>
 
@@ -2470,222 +2674,7 @@
 
 
 
-
-
-
-
  
-<!-- Project: Boundary Layer Transition Analysis for Regional Hybrid/Electric Aircraft -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-  <div class="project-card">
-    <div class="hud-corner tl"></div>
-    <div class="hud-corner tr"></div>
-    <div class="hud-corner bl"></div>
-    <div class="hud-corner br"></div>
-    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Optimizing Laminar Flow for Hybrid/Electric Aircraft</h3>
-    <p class="text-sm mb-4">In the MAE107 Applied Aerodynamics course at ISAE-SUPAERO, I designed and executed a study on Natural Laminar Flow (NLF) airfoils for regional hybrid/electric aircraft, focusing on boundary layer transition due to bug contamination at 1%, 3%, 5%, and 10% chord locations. I personally developed a Python script for web scraping and XFOIL automation to analyze the UIUC airfoil database, selecting the NLF-416 for its robust endurance factor (155 at 1% trip) under contamination. Using XFLR-5, I optimized a semi-tapered wing for an ATR 72-class aircraft, achieving a 21% power reduction (1264 kW vs. 1605 kW) and 760 kg battery mass savings for a 1.5 hr mission, advancing sustainable regional aviation.</p>
-    <div class="mb-4">
-      <img src="./assets/mae107/image7.png" alt="Wing Planform for ATR 72 (Fig. 7)" class="project-image w-full h-48 object-contain rounded border border-[var(--accent-cyan)] cursor-pointer" onclick="openModal('./assets/mae107/image7.png', 'Wing Planform for ATR 72 (Fig. 7)')">
-      <p class="text-xs text-center mt-2">Semi-Tapered Wing Planform</p>
-    </div>
-    <div class="relative overflow-hidden rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="mae107-overview-carousel" style="transform: translateX(0%);">
-        <img src="./assets/mae107/image2.png" alt="Aerodynamic Behavior of Airfoils (Fig. 1)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image2.png', 'Aerodynamic Behavior of Airfoils (Fig. 1)')">
-      </div>
-      <button onclick="slideCarousel('mae107-overview-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('mae107-overview-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-  </div>
-
-  <div class="project-card hologram">
-    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Airfoil Selection and Wing Optimization</h3>
-    <div class="space-y-3">
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Developed a custom Python script to scrape UIUC airfoil database and automate XFOIL analysis, selecting NLF-416 for its high endurance factor (155 at 1% trip) and stable flat-peak performance at Re=13M, 6000m altitude, N-factor=9.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Modeled boundary layer tripping at 1%, 3%, 5%, and 10% chord on both surfaces, finding NLF-416 minimizes drag penalties (0.016 savings at 1% trip) due to delayed separation and turbulent reattachment.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Designed a semi-tapered wing with washout and dihedral in XFLR-5 for ATR 72, achieving a max endurance factor of 32 at 4° AoA, outperforming fully tapered wing by reducing lift-induced drag.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Calculated 21% cruise power reduction (1264 kW vs. 1605 kW), saving 350 kWh and 760 kg battery mass for a 1.5 hr mission, using a modified Breguet equation for hybrid propulsion.</span>
-      </div>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="mae107-analysis-carousel" style="transform: translateX(0%);">
-        <img src="./assets/mae107/image3.png" alt="Aerodynamic Parameters at Trip (Fig. 3)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image3.png', 'Aerodynamic Parameters at Trip (Fig. 3)')">
-        <img src="./assets/mae107/image4.png" alt="Endurance Factor Difference (Fig. 4)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image4.png', 'Endurance Factor Difference (Fig. 4)')">
-      </div>
-      <button onclick="slideCarousel('mae107-analysis-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('mae107-analysis-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="mae107-boundary-carousel" style="transform: translateX(0%);">
-        <img src="./assets/mae107/image5.png" alt="Pressure Distribution at Trip (Fig. 5)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image5.png', 'Pressure Distribution at Trip (Fig. 5)')">
-        <img src="./assets/mae107/image6.png" alt="Boundary Layer Profiles (Fig. 6)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image6.png', 'Boundary Layer Profiles (Fig. 6)')">
-      </div>
-      <button onclick="slideCarousel('mae107-boundary-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('mae107-boundary-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Performance and Sustainability Impact</h3>
-    <div class="space-y-4">
-      <div class="bg-green-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Aerodynamic Efficiency</div>
-        <div class="text-xs">NLF-416 airfoil maintained a high endurance factor (155 at 1% trip), with minimal drag penalty (0.016 savings vs. ATR 72’s 0.017 at no-trip), ensuring robust performance under contamination.</div>
-      </div>
-      <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Power and Mass Savings</div>
-        <div class="text-xs">Semi-tapered wing reduced cruise power by 21% (1264 kW vs. 1605 kW), saving 350 kWh and 760 kg battery mass for a 1.5 hr mission, enabling hybrid propulsion viability.</div>
-      </div>
-      <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Sustainability and Future Potential</div>
-        <div class="text-xs">Hybrid configuration feasible for 1000 km range; full electrification limited by current battery density. Recommended Krueger elements as insect shields to enhance laminar flow stability.</div>
-      </div>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="mae107-results-carousel" style="transform: translateX(0%);">
-        <img src="./assets/mae107/image8.png" alt="Endurance Factor vs. Angle of Attack (Fig. 8)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image8.png', 'Endurance Factor vs. Angle of Attack (Fig. 8)')">
-        <img src="./assets/mae107/image9.png" alt="Battery Mass Impact at Trip (Fig. 9)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/mae107/image9.png', 'Battery Mass Impact at Trip (Fig. 9)')">
-      </div>
-      <button onclick="slideCarousel('mae107-results-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('mae107-results-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request Aerodynamics Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
-  </div>
-</div>
-
-<style>
-  .carousel-container {
-    display: flex;
-    width: 100%;
-    height: 200px;
-  }
-  .carousel-item {
-    min-width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-  }
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-  }
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-  }
-  .modal-caption {
-    text-align: center;
-    color: white;
-    font-size: 16px;
-    margin-top: 10px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-  }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-  }
-</style>
-
-<script>
-  function slideCarousel(id, direction) {
-    const carousel = document.getElementById(id);
-    let currentTransform = parseInt(carousel.style.transform.replace('translateX(', '').replace('%)', '') || 0);
-    const numItems = carousel.children.length;
-    currentTransform += direction * 100;
-    if (currentTransform < -100 * (numItems - 1)) currentTransform = 0;
-    if (currentTransform > 0) currentTransform = -100 * (numItems - 1);
-    carousel.style.transition = 'transform 0.5s ease-in-out';
-    carousel.style.transform = `translateX(${currentTransform}%)`;
-  }
-
-  function autoSlide(id) {
-    let index = 0;
-    const carousel = document.getElementById(id);
-    const numItems = carousel.children.length;
-    if (numItems <= 1) return; // Skip auto-slide for single-item carousels
-    setInterval(() => {
-      index = (index + 1) % numItems;
-      carousel.style.transition = 'transform 0.5s ease-in-out';
-      carousel.style.transform = `translateX(-${index * 100}%)`;
-    }, 5000);
-  }
-
-  function openModal(src, caption) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    let description = '';
-    switch (caption) {
-      case 'Wing Planform for ATR 72 (Fig. 7)':
-        description = 'This figure illustrates the semi-tapered wing planform designed for an ATR 72-class regional aircraft using XFLR-5, incorporating washout and dihedral. The semi-tapered configuration with washout reduces the angle of attack at the wingtips, delaying tip stall and achieving a maximum endurance factor of 32 at 4° angle of attack, outperforming a fully tapered wing by minimizing lift-induced drag.';
-        break;
-      case 'Aerodynamic Behavior of Airfoils (Fig. 1)':
-        description = 'This plot shows the aerodynamic performance of selected airfoils from the UIUC database at cruise conditions (Re=13M, 6000m altitude, N-factor=9), analyzed using a custom Python script for XFOIL automation. The NLF-416 airfoil was chosen for its high endurance factor (up to 250) and stable flat-peak performance at low angles of attack, ensuring robustness against sudden changes like gusts.';
-        break;
-      case 'Aerodynamic Parameters at Trip (Fig. 3)':
-        description = 'This figure presents the impact of boundary layer tripping at 1%, 3%, 5%, and 10% chord locations on both surfaces of the NLF-416 airfoil, analyzed via XFOIL. It shows changes in lift and drag coefficients, with minimal performance degradation at 1% trip (endurance factor of 155), due to turbulent reattachment, highlighting NLF-416’s suitability for contaminated conditions.';
-        break;
-      case 'Endurance Factor Difference (Fig. 4)':
-        description = 'This plot illustrates the endurance factor (power-to-lift/drag ratio) variation due to boundary layer tripping at various chord locations. At low angles of attack, the endurance factor decreases significantly due to increased skin friction drag, but NLF-416 maintains stability at higher angles via turbulent reattachment, with minimal lift/drag coefficient variation beyond 15% chord.';
-        break;
-      case 'Pressure Distribution at Trip (Fig. 5)':
-        description = 'This figure shows the pressure distribution changes on the NLF-416 airfoil’s upper surface due to forced boundary layer transition at 1%, 3%, 5%, and 10% chord. The NLF-416 exhibits a less pronounced pressure drop compared to other airfoils, maintaining stable aerodynamic efficiency by delaying separation, even under contamination.';
-        break;
-      case 'Boundary Layer Profiles (Fig. 6)':
-        description = 'This plot displays displacement (D*) and momentum (θ) thickness profiles for the NLF-416 airfoil under laminar and turbulent conditions. Forced transition increases both thicknesses, with turbulent flow showing a thicker boundary layer. The NLF-416’s thinner laminar profile enhances efficiency, contributing to reduced drag and power requirements.';
-        break;
-      case 'Endurance Factor vs. Angle of Attack (Fig. 8)':
-        description = 'This 3D analysis in XFLR-5 compares the endurance factor vs. angle of attack for semi-tapered (with washout) and fully tapered (no twist) wings on an ATR 72-class aircraft. The semi-tapered wing achieves a maximum endurance factor of 32 at 4° AoA, outperforming the fully tapered wing by reducing lift-induced drag through elliptical lift distribution.';
-        break;
-      case 'Battery Mass Impact at Trip (Fig. 9)':
-        description = 'This figure quantifies the battery mass increase due to drag penalties from boundary layer tripping at 1% chord, resulting in a 45 kW power increase and 200 kg additional battery mass. For a 1.5 hr mission, the NLF wing saves 760 kg in battery mass (0.22 vs. 0.26 L/D ratio), demonstrating significant efficiency for hybrid propulsion.';
-        break;
-    }
-    modal.innerHTML = `
-      <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
-      <img src="${src}" alt="${caption}" class="modal-content">
-      <div class="modal-caption">${caption}<br>${description}</div>
-    `;
-    document.body.appendChild(modal);
-    modal.style.display = 'block';
-  }
-
-  // Initialize auto-slide for project carousels
-  document.addEventListener('DOMContentLoaded', () => {
-    autoSlide('mae107-overview-carousel');
-    autoSlide('mae107-analysis-carousel');
-    autoSlide('mae107-boundary-carousel');
-    autoSlide('mae107-results-carousel');
-  });
-</script>
 
   
 
@@ -3744,6 +3733,7 @@
 </body>
 </html>
 ```
+
 
 
 
