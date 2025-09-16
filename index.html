@@ -1378,6 +1378,271 @@
 </script>
 
 
+
+<!-- Project: Aircraft Design with Electrically Assisted Battery and Electromagnetic Launcher (EML) Concept -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+  <div class="project-card">
+    <div class="hud-corner tl"></div>
+    <div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div>
+    <div class="hud-corner br"></div>
+    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Next-Generation Single-Aisle Aircraft Concept</h3>
+    <p class="text-sm mb-4">Graduate project at ISAE-SUPAERO exploring the overall design of a future single-aisle transport aircraft in the A321 class. The goal was to balance efficiency, certification compliance, and future sustainability requirements.</p>
+    <p class="text-sm mb-4">Alongside the baseline aircraft, an innovative concept with electrically assisted climb/descent and an electromagnetic launcher for takeoff was developed, aiming to cut fuel burn, emissions, and noise.</p>
+    <p class="text-sm mb-4">Work combined classical hand calculations, analytical models, and feasibility studies with modern tools to understand the trade-offs and maturity level of such technologies.</p>
+    <div class="mb-4">
+      <img src="./assets/adm/aircraft.png" alt="Aircraft Geometry - Wing Position" class="project-image w-full h-48 object-contain rounded border border-[var(--accent-cyan)] cursor-pointer" onclick="openModal('./assets/adm/7 wing position.PNG', 'Aircraft Geometry - Wing Position')">
+      <p class="text-xs text-center mt-2">Aircraft Geometry</p>
+    </div>
+     
+    <div class="relative overflow-hidden rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-overview-carousel" style="transform: translateX(0%);">
+        <img src="./assets/adm/4 Fuselage layout.png" alt="Multidisciplinary Design Approach" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/2.aircraft design multidisciplinary approach-Page-2.drawio.png', 'Multidisciplinary Design Approach')">
+      </div>
+      <button onclick="slideCarousel('adm-overview-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('adm-overview-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+  </div>
+
+  <div class="project-card hologram">
+    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Design and Feasibility Process</h3>
+    <div class="space-y-3">
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Performed hand calculations and mass–performance loops to size the aircraft and converge on weight and range targets.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Used constraint analysis and stability checks to validate compliance with CS-25 requirements.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Explored battery-assisted climb/descent and electromagnetic launch integration, evaluating maturity, trade-offs, and certification considerations.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Coordinated across disciplines (aerodynamics, structures, performance) to ensure consistency of the overall aircraft architecture.</span>
+      </div>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-aerodynamics-carousel" style="transform: translateX(0%);">
+        <img src="./assets/adm/drag polars.png" alt="Drag Polar Results" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/drag polars.png', 'Drag Polar Results')">
+        <img src="./assets/adm/analytical drag polar.png" alt="Analytical Drag Polar" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/analytical drag polar.png', 'Analytical Drag Polar')">
+        <img src="./assets/adm/THRUST VS MACH.png" alt="Thrust vs Mach" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/THRUST VS MACH.png', 'Thrust vs Mach')">
+        <img src="./assets/adm/SFC vs mac.png" alt="SFC vs Mach" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/SFC vs mac.png', 'SFC vs Mach')">
+      </div>
+      <button onclick="slideCarousel('adm-aerodynamics-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('adm-aerodynamics-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-analysis-carousel" style="transform: translateX(0%);">
+        <img src="./assets/adm/constraint graphs.png" alt="Constraint Analysis" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/constraint graphs.png', 'Constraint Analysis')">
+        <img src="./assets/adm/9 constraint analysis innovative.png" alt="Innovative Constraint Analysis" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/9 constraint analysis innovative.png', 'Innovative Constraint Analysis')">
+        <img src="./assets/adm/6 Mass Performance Loop.png" alt="Mass–Performance Loop" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/6 Mass Performance Loop.png', 'Mass–Performance Loop')">
+        <img src="./assets/adm/10 iteration 1.png" alt="Iteration Example" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/10 iteration 1.png', 'Iteration Example')">
+      </div>
+      <button onclick="slideCarousel('adm-analysis-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('adm-analysis-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Outcomes and Insights</h3>
+    <div class="space-y-4">
+      <div class="bg-green-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Baseline Aircraft</div>
+        <div class="text-xs">Delivered a CS-25 compliant design meeting weight, range, and stability targets for the A321-class mission profile.</div>
+      </div>
+      <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Innovative Variant</div>
+        <div class="text-xs">Demonstrated potential for ~15% fuel burn reduction and zero-emission climb/descent with battery and EML support, while highlighting technology maturity and certification challenges.</div>
+      </div>
+      <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Learning & Feasibility</div>
+        <div class="text-xs">Gained experience in system-level trade-offs, certification-driven design, and early-stage feasibility assessment of disruptive technologies.</div>
+      </div>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-results-carousel" style="transform: translateX(0%);">
+        <img src="./assets/adm/payload range comparison.png" alt="Payload-Range Diagram" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/payload range comparison.png', 'Payload-Range Diagram')">
+        <img src="./assets/adm/trajectory.png" alt="Trajectory Analysis" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/trajectory.PNG', 'Trajectory Analysis')">
+      </div>
+      <button onclick="slideCarousel('adm-results-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('adm-results-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-stability-carousel" style="transform: translateX(0%);">
+        <img src="./assets/adm/8 cg_range.png" alt="CG Range Analysis" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/8 cg_range.png', 'CG Range Analysis')">
+        <img src="./assets/adm/12 stability analysis innovative.png" alt="Stability Checks" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/12 stability analysis innovative.png', 'Stability Checks')">
+      </div>
+      <button onclick="slideCarousel('adm-stability-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('adm-stability-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request Aircraft Design Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
+    <a href="./assets/adm_presentation.pdf" download class="block mt-2 bg-[var(--success-green)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Download Presentation</a>
+  </div>
+</div>
+
+
+
+
+ 
+ 
+
+<style>
+  .carousel-container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+  }
+  .carousel-item {
+    min-width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+  }
+  .modal-caption {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function slideCarousel(id, direction) {
+    const carousel = document.getElementById(id);
+    let currentTransform = parseInt(carousel.style.transform.replace('translateX(', '').replace('%)', '') || 0);
+    const numItems = carousel.children.length;
+    currentTransform += direction * 100;
+    if (currentTransform < -100 * (numItems - 1)) currentTransform = 0;
+    if (currentTransform > 0) currentTransform = -100 * (numItems - 1);
+    carousel.style.transition = 'transform 0.5s ease-in-out';
+    carousel.style.transform = `translateX(${currentTransform}%)`;
+  }
+
+  function autoSlide(id) {
+    let index = 0;
+    const carousel = document.getElementById(id);
+    const numItems = carousel.children.length;
+    if (numItems <= 1) return; // Skip auto-slide for single-item carousels
+    setInterval(() => {
+      index = (index + 1) % numItems;
+      carousel.style.transition = 'transform 0.5s ease-in-out';
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000);
+  }
+
+  function openModal(src, caption) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    let description = '';
+    switch (caption) {
+      case 'Multidisciplinary Design Approach (Fig. 1)':
+        description = 'Diagram showcasing the integration of aerodynamics, structures, propulsion, and stability in a multidisciplinary aircraft design process.';
+        break;
+      case 'Iterative Design Workflow (Fig. 2)':
+        description = 'Five-session iterative workflow guiding the design of both conventional and innovative aircraft, ensuring performance and stability convergence.';
+        break;
+      case 'Aircraft Geometry - Wing Position':
+        description = 'Wing geometry with a 166.62m² area (conventional) and 219.6m² (innovative), positioned 18.35m from the aircraft nose for optimal aerodynamics.';
+        break;
+      case 'Cabin Layout':
+        description = 'Fuselage layout for 239 passengers (46.59m length, 3.63m diameter), designed using ALCAZAR for single-aisle comfort and efficiency.';
+        break;
+      case 'Conventional Constraint Analysis (Fig. 5)':
+        description = 'Constraint plot defining the feasible design space for the conventional aircraft, with wing loading of 665 kg/m² and thrust-to-weight of 0.37.';
+        break;
+      case 'Innovative Constraint Analysis (Fig. 16)':
+        description = 'Constraint plot for the innovative aircraft, with relaxed takeoff/climb constraints due to EML and battery power, selecting a T/W of 0.17.';
+        break;
+      case 'Conventional Mass Performance Loop (Fig. 6)':
+        description = 'Converged MTOW of 106,300 kg and OEW of 57,468 kg for the conventional aircraft, balancing fuel and structural requirements via ALCAZAR.';
+        break;
+      case 'Innovative Mass Performance Loop Iteration 1 (Fig. 17a)':
+        description = 'First iteration for the innovative aircraft, converging at OEW/MTOW of 0.6425, accounting for a 15,000 kg battery.';
+        break;
+      case 'Innovative Mass Performance Loop Iteration 2 (Fig. 17b)':
+        description = 'Second iteration yielding MTOW of 125,630 kg and OEW of 77,451 kg, optimized for battery integration and reduced thrust needs.';
+        break;
+      case 'ALCAZAR Drag Polar Results (Fig. 10)':
+        description = 'Drag polar from ALCAZAR, highlighting wave drag effects at high lift coefficients for the conventional aircraft.';
+        break;
+      case 'Analytical Drag Polar Results (Fig. 11)':
+        description = 'Analytical drag polar excluding wave drag, used to validate ALCAZAR results for aerodynamic performance.';
+        break;
+      case 'Thrust vs Mach for Varying Altitude (Fig. 13)':
+        description = 'Thrust variation with Mach number across altitudes, showing reduced thrust at higher altitudes for efficient cruise design.';
+        break;
+      case 'SFC vs Mach for Varying Altitude (Fig. 14)':
+        description = 'Specific Fuel Consumption trends, increasing with Mach and decreasing with altitude, informing propulsion optimization.';
+        break;
+      case 'Conventional CG Range (Fig. 15)':
+        description = 'Center of Gravity range (16.4% to 40.99% MAC) for the conventional aircraft, ensuring longitudinal stability across loading conditions.';
+        break;
+      case 'Innovative Stability Analysis (Fig. 18)':
+        description = 'Stability analysis for the innovative aircraft, with CG range (11.56% to 33.84% MAC) and resized empennage for lateral control.';
+        break;
+      case 'Combined Payload-Range Diagram (Fig. 20)':
+        description = 'Payload-range comparison showing conventional (75.35 PAX-km/kg, 5500 NM ferry) and innovative (76.91–93.98 PAX-km/kg, 4770 NM) performance.';
+        break;
+      case 'Innovative Flight Trajectory (Fig. 21)':
+        description = 'Flight trajectory for the innovative aircraft, featuring EML-assisted takeoff, battery-powered climb, conventional cruise, and gliding descent.';
+        break;
+    }
+    modal.innerHTML = `
+      <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+      <img src="${src}" alt="${caption}" class="modal-content">
+      <div class="modal-caption">${caption}<br>${description}</div>
+    `;
+    document.body.appendChild(modal);
+    modal.style.display = 'block';
+  }
+
+  // Initialize auto-slide for project carousels
+  document.addEventListener('DOMContentLoaded', () => {
+    autoSlide('adm-overview-carousel');
+    autoSlide('adm-analysis-carousel');
+    autoSlide('adm-aerodynamics-carousel');
+    autoSlide('adm-results-carousel');
+    autoSlide('adm-stability-carousel');
+  });
+</script>
+
+
  
  <!-- Project: Structural Analysis of Aircraft Air Brake -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
@@ -2426,269 +2691,7 @@
 
 
  
-
-
-
-
-
  
-<!-- Project: Aircraft Design with Electrically Assisted Battery and Electromagnetic Launcher (EML) Concept -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-  <div class="project-card">
-    <div class="hud-corner tl"></div>
-    <div class="hud-corner tr"></div>
-    <div class="hud-corner bl"></div>
-    <div class="hud-corner br"></div>
-    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Aircraft Design with Electrically Assisted Battery and EML Concept</h3>
-    <p class="text-sm mb-4">In the 1MAE506 Aircraft Design Methods course at ISAE-SUPAERO under Prof. Sebastien Defoort, I spearheaded the conceptual design of an A321-class single-aisle transport aircraft (239 passengers, 2500 NM range, CS-25 compliant) and an innovative electrically assisted variant using battery-powered climb/descent and an Electromagnetic Launcher (EML) for takeoff. Employing analytical methods (Breguet range equation, constraint analysis) and ALCAZAR software, I optimized geometries, stability, and performance, achieving a 15% fuel burn reduction and zero emissions during climb/descent in the innovative design, demonstrating a sustainable solution for next-generation aviation.</p>
-    <div class="mb-4">
-      <img src="./assets/adm/aircraft.png" alt="Aircraft Geometry - Wing Position" class="project-image w-full h-48 object-contain rounded border border-[var(--accent-cyan)] cursor-pointer" onclick="openModal('./assets/adm/7 wing position.PNG', 'Aircraft Geometry - Wing Position')">
-      <p class="text-xs text-center mt-2">Aircraft Geometry </p>
-    </div>
-     
-    <div class="relative overflow-hidden rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-overview-carousel" style="transform: translateX(0%);">
-        <img src="./assets/adm/4 Fuselage layout.png" alt="Multidisciplinary Design Approach (Fig. 1)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/2.aircraft design multidisciplinary approach-Page-2.drawio.png', 'Multidisciplinary Design Approach (Fig. 1)')">
-         
-      </div>
-      <button onclick="slideCarousel('adm-overview-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('adm-overview-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-  </div>
-
-  <div class="project-card hologram">
-    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Iterative Design and Optimization Process</h3>
-    <div class="space-y-3">
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Calculated MTOW (106,300 kg conventional, 125,630 kg innovative) using Breguet range equation, iterating via ALCAZAR’s mass-performance loops to converge at OEW/MTOW ratios of 0.5411 and 0.628, incorporating 15,000 kg battery for innovative design.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Conducted constraint analysis to optimize wing loading (665 kg/m²) and thrust-to-weight (0.37 conventional, 0.17 innovative with EML), ensuring compliance with CS-25 regulations.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Designed geometries (conventional: 166.62m² wing, 47.38m² HTP, 34.1m² VTP; innovative: 219.6m² wing, 63.94m² HTP, 22m² VTP) and validated longitudinal/lateral stability using ALCAZAR.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Analyzed trajectory performance, achieving 75.35 PAX-km/kg (conventional) and 76.91–93.98 PAX-km/kg (innovative), with EML and battery power reducing fuel burn by 15%.</span>
-      </div>
-    </div>
-        <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-aerodynamics-carousel" style="transform: translateX(0%);">
-        <img src="./assets/adm/drag polars.png" alt="ALCAZAR Drag Polar Results (Fig. 10)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/drag polars.png', 'ALCAZAR Drag Polar Results (Fig. 10)')">
-        <img src="./assets/adm/analytical drag polar.png" alt="Analytical Drag Polar Results (Fig. 11)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/analytical drag polar.png', 'Analytical Drag Polar Results (Fig. 11)')">
-        <img src="./assets/adm/THRUST VS MACH.png" alt="Thrust vs Mach for Varying Altitude (Fig. 13)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/THRUST VS MACH.png', 'Thrust vs Mach for Varying Altitude (Fig. 13)')">
-        <img src="./assets/adm/SFC vs mac.png" alt="SFC vs Mach for Varying Altitude (Fig. 14)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/SFC vs mac.png', 'SFC vs Mach for Varying Altitude (Fig. 14)')">
-      </div>
-      <button onclick="slideCarousel('adm-aerodynamics-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('adm-aerodynamics-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-analysis-carousel" style="transform: translateX(0%);">
-        <img src="./assets/adm/constraint graphs.png" alt="Conventional Constraint Analysis (Fig. 5)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/constraint graphs.png', 'Conventional Constraint Analysis (Fig. 5)')">
-        <img src="./assets/adm/9 constraint analysis innovative.png" alt="Innovative Constraint Analysis (Fig. 16)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/9 constraint analysis innovative.png', 'Innovative Constraint Analysis (Fig. 16)')">
-        <img src="./assets/adm/6 Mass Performance Loop.png" alt="Conventional Mass Performance Loop (Fig. 6)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/6 Mass Performance Loop.png', 'Conventional Mass Performance Loop (Fig. 6)')">
-        <img src="./assets/adm/10 iteration 1.png" alt="Innovative Mass Performance Loop Iteration 1 (Fig. 17a)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/10 iteration 1.png', 'Innovative Mass Performance Loop Iteration 1 (Fig. 17a)')">
-        <img src="./assets/adm/11 ineration 2.png" alt="Innovative Mass Performance Loop Iteration 2 (Fig. 17b)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/11 ineration 2.png', 'Innovative Mass Performance Loop Iteration 2 (Fig. 17b)')">
-      </div>
-      <button onclick="slideCarousel('adm-analysis-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('adm-analysis-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
- 
-  </div>
-
-  <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Performance and Sustainability Outcomes</h3>
-    <div class="space-y-4">
-      <div class="bg-green-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Conventional Aircraft Performance</div>
-        <div class="text-xs">Optimized MTOW of 106,300 kg, OEW of 57,468 kg, and performance of 75.35 PAX-km/kg over a 2500 NM range, with a 5500 NM ferry range, meeting CS-25 stability and efficiency standards.</div>
-      </div>
-      <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Innovative Aircraft Efficiency</div>
-        <div class="text-xs">Achieved 15% fuel burn reduction (14,868 kg) using EML for takeoff and 15,000 kg battery for climb/descent, delivering 76.91–93.98 PAX-km/kg and a 4770 NM ferry range with zero emissions in key phases.</div>
-      </div>
-      <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Sustainability Impact</div>
-        <div class="text-xs">Eliminated CO₂/NOx emissions and reduced noise by up to 50% (NASA studies) during climb/descent, ideal for urban airports. Battery weight limits range but offers scalability with future technology advancements.</div>
-      </div>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-results-carousel" style="transform: translateX(0%);">
-        <img src="./assets/adm/payload range comparison.png" alt="Combined Payload-Range Diagram (Fig. 20)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/payload range comparison.png', 'Combined Payload-Range Diagram (Fig. 20)')">
-        <img src="./assets/adm/trajectory.png" alt="Innovative Flight Trajectory (Fig. 21)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/trajectory.PNG', 'Innovative Flight Trajectory (Fig. 21)')">
-      </div>
-      <button onclick="slideCarousel('adm-results-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('adm-results-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="adm-stability-carousel" style="transform: translateX(0%);">
-        <img src="./assets/adm/8 cg_range.png" alt="Conventional CG Range (Fig. 15)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/8 cg_range.png', 'Conventional CG Range (Fig. 15)')">
-        <img src="./assets/adm/12 stability analysis innovative.png" alt="Innovative Stability Analysis (Fig. 18)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./assets/adm/12 stability analysis innovative.png', 'Innovative Stability Analysis (Fig. 18)')">
-      </div>
-      <button onclick="slideCarousel('adm-stability-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('adm-stability-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request Aircraft Design Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
-    <a href="./assets/adm_presentation.pdf" download class="block mt-2 bg-[var(--success-green)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Download Presentation</a>
-  </div>
-</div>
-
-<style>
-  .carousel-container {
-    display: flex;
-    width: 100%;
-    height: 200px;
-  }
-  .carousel-item {
-    min-width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-  }
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-  }
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-  }
-  .modal-caption {
-    text-align: center;
-    color: white;
-    font-size: 16px;
-    margin-top: 10px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-  }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-  }
-</style>
-
-<script>
-  function slideCarousel(id, direction) {
-    const carousel = document.getElementById(id);
-    let currentTransform = parseInt(carousel.style.transform.replace('translateX(', '').replace('%)', '') || 0);
-    const numItems = carousel.children.length;
-    currentTransform += direction * 100;
-    if (currentTransform < -100 * (numItems - 1)) currentTransform = 0;
-    if (currentTransform > 0) currentTransform = -100 * (numItems - 1);
-    carousel.style.transition = 'transform 0.5s ease-in-out';
-    carousel.style.transform = `translateX(${currentTransform}%)`;
-  }
-
-  function autoSlide(id) {
-    let index = 0;
-    const carousel = document.getElementById(id);
-    const numItems = carousel.children.length;
-    if (numItems <= 1) return; // Skip auto-slide for single-item carousels
-    setInterval(() => {
-      index = (index + 1) % numItems;
-      carousel.style.transition = 'transform 0.5s ease-in-out';
-      carousel.style.transform = `translateX(-${index * 100}%)`;
-    }, 5000);
-  }
-
-  function openModal(src, caption) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    let description = '';
-    switch (caption) {
-      case 'Multidisciplinary Design Approach (Fig. 1)':
-        description = 'Diagram showcasing the integration of aerodynamics, structures, propulsion, and stability in a multidisciplinary aircraft design process.';
-        break;
-      case 'Iterative Design Workflow (Fig. 2)':
-        description = 'Five-session iterative workflow guiding the design of both conventional and innovative aircraft, ensuring performance and stability convergence.';
-        break;
-      case 'Aircraft Geometry - Wing Position':
-        description = 'Wing geometry with a 166.62m² area (conventional) and 219.6m² (innovative), positioned 18.35m from the aircraft nose for optimal aerodynamics.';
-        break;
-      case 'Cabin Layout':
-        description = 'Fuselage layout for 239 passengers (46.59m length, 3.63m diameter), designed using ALCAZAR for single-aisle comfort and efficiency.';
-        break;
-      case 'Conventional Constraint Analysis (Fig. 5)':
-        description = 'Constraint plot defining the feasible design space for the conventional aircraft, with wing loading of 665 kg/m² and thrust-to-weight of 0.37.';
-        break;
-      case 'Innovative Constraint Analysis (Fig. 16)':
-        description = 'Constraint plot for the innovative aircraft, with relaxed takeoff/climb constraints due to EML and battery power, selecting a T/W of 0.17.';
-        break;
-      case 'Conventional Mass Performance Loop (Fig. 6)':
-        description = 'Converged MTOW of 106,300 kg and OEW of 57,468 kg for the conventional aircraft, balancing fuel and structural requirements via ALCAZAR.';
-        break;
-      case 'Innovative Mass Performance Loop Iteration 1 (Fig. 17a)':
-        description = 'First iteration for the innovative aircraft, converging at OEW/MTOW of 0.6425, accounting for a 15,000 kg battery.';
-        break;
-      case 'Innovative Mass Performance Loop Iteration 2 (Fig. 17b)':
-        description = 'Second iteration yielding MTOW of 125,630 kg and OEW of 77,451 kg, optimized for battery integration and reduced thrust needs.';
-        break;
-      case 'ALCAZAR Drag Polar Results (Fig. 10)':
-        description = 'Drag polar from ALCAZAR, highlighting wave drag effects at high lift coefficients for the conventional aircraft.';
-        break;
-      case 'Analytical Drag Polar Results (Fig. 11)':
-        description = 'Analytical drag polar excluding wave drag, used to validate ALCAZAR results for aerodynamic performance.';
-        break;
-      case 'Thrust vs Mach for Varying Altitude (Fig. 13)':
-        description = 'Thrust variation with Mach number across altitudes, showing reduced thrust at higher altitudes for efficient cruise design.';
-        break;
-      case 'SFC vs Mach for Varying Altitude (Fig. 14)':
-        description = 'Specific Fuel Consumption trends, increasing with Mach and decreasing with altitude, informing propulsion optimization.';
-        break;
-      case 'Conventional CG Range (Fig. 15)':
-        description = 'Center of Gravity range (16.4% to 40.99% MAC) for the conventional aircraft, ensuring longitudinal stability across loading conditions.';
-        break;
-      case 'Innovative Stability Analysis (Fig. 18)':
-        description = 'Stability analysis for the innovative aircraft, with CG range (11.56% to 33.84% MAC) and resized empennage for lateral control.';
-        break;
-      case 'Combined Payload-Range Diagram (Fig. 20)':
-        description = 'Payload-range comparison showing conventional (75.35 PAX-km/kg, 5500 NM ferry) and innovative (76.91–93.98 PAX-km/kg, 4770 NM) performance.';
-        break;
-      case 'Innovative Flight Trajectory (Fig. 21)':
-        description = 'Flight trajectory for the innovative aircraft, featuring EML-assisted takeoff, battery-powered climb, conventional cruise, and gliding descent.';
-        break;
-    }
-    modal.innerHTML = `
-      <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
-      <img src="${src}" alt="${caption}" class="modal-content">
-      <div class="modal-caption">${caption}<br>${description}</div>
-    `;
-    document.body.appendChild(modal);
-    modal.style.display = 'block';
-  }
-
-  // Initialize auto-slide for project carousels
-  document.addEventListener('DOMContentLoaded', () => {
-    autoSlide('adm-overview-carousel');
-    autoSlide('adm-analysis-carousel');
-    autoSlide('adm-aerodynamics-carousel');
-    autoSlide('adm-results-carousel');
-    autoSlide('adm-stability-carousel');
-  });
-</script>
 
 
 
@@ -3741,6 +3744,7 @@
 </body>
 </html>
 ```
+
 
 
 
