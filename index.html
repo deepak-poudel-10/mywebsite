@@ -1650,7 +1650,7 @@
     <div class="hud-corner bl"></div>
     <div class="hud-corner br"></div>
     <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Optimizing Laminar Flow for Hybrid/Electric Aircraft</h3>
-    <p class="text-sm mb-4">In the Applied Aerodynamics course (MAE107) at ISAE-SUPAERO, I studied how boundary layer transition affects regional hybrid/electric aircraft efficiency. The focus was on Natural Laminar Flow (NLF) wings and their sensitivity to surface contamination like insect impacts.</p>
+    <p class="text-sm mb-4">In this project, I studied how boundary layer transition affects regional hybrid/electric aircraft efficiency. The focus was on Natural Laminar Flow (NLF) wings and their sensitivity to surface contamination like insect impacts.</p>
     <p class="text-sm mb-4">I built a Python tool to scrape and analyze the UIUC airfoil database through automated XFOIL runs, selecting promising laminar-flow airfoils for integration on an ATR 72-class platform. The goal was to understand both aerodynamic performance and aircraft-level energy implications.</p>
     <div class="mb-4">
       <img src="./assets/mae107/image7.png" alt="Semi-Tapered Wing Planform" class="project-image w-full h-48 object-contain rounded border border-[var(--accent-cyan)] cursor-pointer" onclick="openModal('./assets/mae107/image7.png', 'Semi-Tapered Wing Planform')">
@@ -1845,6 +1845,242 @@
     autoSlide('mae107-results-carousel');
   });
 </script>
+
+
+    <!-- Project 5: Blended Wing Body eVTOL Aircraft Design -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+  <div class="project-card">
+    <div class="hud-corner tl"></div>
+    <div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div>
+    <div class="hud-corner br"></div>
+    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Blended Wing Body eVTOL Aircraft Design</h3>
+    <p class="text-sm mb-4">
+      As part of my internship at Pashchimanchal Campus (2022), I worked on the preliminary design of a 6-seater Blended Wing Body eVTOL aircraft. 
+      The project explored how combining a BWB layout with distributed electric ducted fans could make regional and urban air mobility more efficient, quieter, and sustainable. 
+      My focus was on understanding how overall aircraft geometry, sizing methods, and propulsion choices affect performance, control, and range in such unconventional configurations. 
+      This was my first hands-on experience applying aircraft design approaches to a novel concept, while also thinking critically about certification, handling qualities, and sustainability impacts.
+    </p>
+    <img src="./media/evtol_bwb/fig1.png" alt="Range-MTOW Data of Similar Aircrafts (Fig. 1)" class="project-image w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig1.png', 'Range-MTOW Data of Similar Aircrafts (Fig. 1)')">
+    <img src="./media/evtol_bwb/fig2.png" alt="Mass Breakdown for eVTOL BWB Aircraft (Fig. 2)" class="project-image w-full h-48 object-contain rounded cursor-pointer mt-2" onclick="openModal('./media/evtol_bwb/fig2.png', 'Mass Breakdown for eVTOL BWB Aircraft (Fig. 2)')">
+  </div>
+
+  <div class="project-card hologram">
+    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: My Design Approach</h3>
+    <div class="space-y-3">
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Explored overall sizing of the BWB concept, from wing loading and power loading trade-offs to passenger payload balance, while adapting classical methods for a non-conventional layout.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Studied the use of ducted fans for vertical lift and cruise efficiency, weighing their benefits (noise reduction, thrust gain) against added drag and structural complexity.</span>
+      </div>
+      <div class="flex items-center">
+        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
+        <span class="text-sm">Applied performance assessment models and CFD analysis to understand lift-to-drag, stall speed, and stability, and to see how these choices connect to control, range, and sustainability.</span>
+      </div>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-design-carousel" style="transform: translateX(0%);">
+        <img src="./media/evtol_bwb/fig3.png" alt="Constraint Analysis Plot (Fig. 3)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig3.png', 'Constraint Analysis Plot (Fig. 3)')">
+      </div>
+      <button onclick="slideCarousel('evtol-design-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('evtol-design-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-cfd-carousel" style="transform: translateX(0%);">
+        <img src="./media/evtol_bwb/fig17.png" alt="Coefficient of Pressure at -5° AOA (Fig. 17)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig17.png', 'Coefficient of Pressure at -5° AOA (Fig. 17)')">
+        <img src="./media/evtol_bwb/fig18.png" alt="Coefficient of Pressure at 0° AOA (Fig. 18)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig18.png', 'Coefficient of Pressure at 0° AOA (Fig. 18)')">
+        <img src="./media/evtol_bwb/fig19.png" alt="Coefficient of Pressure at 3° AOA (Fig. 19)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig19.png', 'Coefficient of Pressure at 3° AOA (Fig. 19)')">
+        <img src="./media/evtol_bwb/fig20.png" alt="Coefficient of Pressure at 15° AOA (Fig. 20)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig20.png', 'Coefficient of Pressure at 15° AOA (Fig. 20)')">
+      </div>
+      <button onclick="slideCarousel('evtol-cfd-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('evtol-cfd-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: More perspective on innovative concepts and urban air mobility markets</h3>
+    <div class="space-y-4">
+      <div class="bg-green-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Design Insights</div>
+        <div class="text-xs">Saw how BWB geometry improves lift-to-drag and space efficiency, but also brings stability and control challenges that require tailored airfoils and handling qualities studies.</div>
+      </div>
+      <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Performance Perspective</div>
+        <div class="text-xs">Learned to connect constraint analysis, CFD results, and energy estimates to practical metrics like range, stall speed, and climb capability in line with CS-23 requirements, and how that fits in different segments of the aircraft market (RAM/UAM)</div>
+      </div>
+      <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
+        <div class="text-sm font-bold">Sustainability Curiosity</div>
+        <div class="text-xs">Explored how electric propulsion with ducted fans impacts noise, emissions, and energy use — and how these trade-offs shape the future of UAM/RAM aircraft.</div>
+      </div>
+    </div>
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-analysis-carousel" style="transform: translateX(0%);">
+        <img src="./media/evtol_bwb/fig24.png" alt="Variation of Coefficient of Lift (Fig. 24)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig24.png', 'Variation of Coefficient of Lift (Fig. 24)')">
+        <img src="./media/evtol_bwb/fig25.png" alt="Variation of Coefficient of Drag (Fig. 25)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig25.png', 'Variation of Coefficient of Drag (Fig. 25)')">
+        <img src="./media/evtol_bwb/fig26.png" alt="Variation of Drag with Lift (Fig. 26)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig26.png', 'Variation of Drag with Lift (Fig. 26)')">
+        <img src="./media/evtol_bwb/fig27.png" alt="Variation of Pitching Moment Coefficient (Fig. 27)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig27.png', 'Variation of Pitching Moment Coefficient (Fig. 27)')">
+        <img src="./media/evtol_bwb/fig28.png" alt="Power Requirement for Each Flight Phase (Fig. 28)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig28.png', 'Power Requirement for Each Flight Phase (Fig. 28)')">
+        <img src="./media/evtol_bwb/fig29.png" alt="Time Duration for Each Flight Phase (Fig. 29)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig29.png', 'Time Duration for Each Flight Phase (Fig. 29)')">
+      </div>
+      <button onclick="slideCarousel('evtol-analysis-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
+      <button onclick="slideCarousel('evtol-analysis-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
+    </div>
+    <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request eVTOL BWB Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
+  </div>
+</div>
+    
+
+<style>
+  .carousel-container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+  }
+  .carousel-item {
+    min-width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+  }
+  .modal-caption {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function slideCarousel(id, direction) {
+    const carousel = document.getElementById(id);
+    let currentTransform = parseInt(carousel.style.transform.replace('translateX(', '').replace('%)', '') || 0);
+    const numItems = carousel.children.length;
+    currentTransform += direction * 100;
+    if (currentTransform < -100 * (numItems - 1)) currentTransform = 0;
+    if (currentTransform > 0) currentTransform = -100 * (numItems - 1);
+    carousel.style.transition = 'transform 0.5s ease-in-out';
+    carousel.style.transform = `translateX(${currentTransform}%)`;
+  }
+
+  function autoSlide(id) {
+    let index = 0;
+    const carousel = document.getElementById(id);
+    const numItems = carousel.children.length;
+    if (numItems <= 1) return; // Skip auto-slide for single-item carousels
+    setInterval(() => {
+      index = (index + 1) % numItems;
+      carousel.style.transition = 'transform 0.5s ease-in-out';
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000);
+  }
+
+  function openModal(src, caption) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    let description = '';
+    switch (caption) {
+      case 'Range-MTOW Data of Similar Aircrafts (Fig. 1)':
+        description = 'Comparative data of range and maximum takeoff weight for similar eVTOL aircrafts to establish design benchmarks.';
+        break;
+      case 'Mass Breakdown for eVTOL BWB Aircraft (Fig. 2)':
+        description = 'Detailed mass distribution including structure, propulsion, and payload for the BWB aircraft design.';
+        break;
+      case 'Constraint Analysis Plot (Fig. 3)':
+        description = 'Plot showing design constraints for wing loading, power loading, and disc loading to optimize performance.';
+        break;
+      case 'Coefficient of Pressure at -5° AOA (Fig. 17)':
+        description = 'Pressure distribution across the BWB wing at -5° angle of attack.';
+        break;
+      case 'Coefficient of Pressure at 0° AOA (Fig. 18)':
+        description = 'Pressure distribution at 0° angle of attack, representing a neutral condition.';
+        break;
+      case 'Coefficient of Pressure at 3° AOA (Fig. 19)':
+        description = 'Pressure distribution at 3° angle of attack, representing cruising conditions.';
+        break;
+      case 'Coefficient of Pressure at 15° AOA (Fig. 20)':
+        description = 'Pressure distribution at 15° angle of attack, near stall conditions.';
+        break;
+      case 'Variation of Local Lift Distribution (Fig. 21)':
+        description = 'Lift distribution variation across the wing at different angles of attack.';
+        break;
+      case 'Variation of Induced Drag Coefficient (Fig. 22)':
+        description = 'Change in induced drag with varying angles of attack.';
+        break;
+      case 'Variation of Lift to Drag Ratio (Fig. 23)':
+        description = 'L/D ratio variation, highlighting maximum efficiency at 3° AOA.';
+        break;
+      case 'Variation of Coefficient of Lift (Fig. 24)':
+        description = 'Coefficient of lift variation with angle of attack.';
+        break;
+      case 'Variation of Coefficient of Drag (Fig. 25)':
+        description = 'Coefficient of drag variation with angle of attack.';
+        break;
+      case 'Variation of Drag with Lift (Fig. 26)':
+        description = 'Drag polar showing drag vs. lift relationship.';
+        break;
+      case 'Variation of Pitching Moment Coefficient (Fig. 27)':
+        description = 'Pitching moment variation with angle of attack for stability analysis.';
+        break;
+      case 'Power Requirement for Each Flight Phase (Fig. 28)':
+        description = 'Power needs for takeoff, cruise, hover, and landing phases.';
+        break;
+      case 'Time Duration for Each Flight Phase (Fig. 29)':
+        description = 'Time allocation for each flight phase to meet range and performance goals.';
+        break;
+    }
+    modal.innerHTML = `
+      <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+      <img src="${src}" alt="${caption}" class="modal-content">
+      <div class="modal-caption">${caption}<br>${description}</div>
+    `;
+    document.body.appendChild(modal);
+    modal.style.display = 'block';
+  }
+
+  // Initialize auto-slide for Project 5 carousels
+  document.addEventListener('DOMContentLoaded', () => {
+    autoSlide('evtol-design-carousel');
+    autoSlide('evtol-cfd-carousel');
+    autoSlide('evtol-performance-carousel');
+    autoSlide('evtol-analysis-carousel');
+  });
+</script>
+
 
 
  
@@ -2849,245 +3085,10 @@
 </script>
 
  
-    
-    <!-- Project 5: Preliminary Design and Performance Assessment of eVTOL Blended Wing Body Aircraft -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-  <div class="project-card">
-    <div class="hud-corner tl"></div>
-    <div class="hud-corner tr"></div>
-    <div class="hud-corner bl"></div>
-    <div class="hud-corner br"></div>
-    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Preliminary Design and Performance Assessment of eVTOL Blended Wing Body Aircraft</h3>
-    <p class="text-sm mb-4">This project, conducted as part of aerospace engineering research at GITAM (Deemed to be University), Hyderabad, focuses on developing a conceptual framework for a 6-seater eVTOL Blended Wing Body (BWB) aircraft tailored for Urban Air Mobility (UAM) and Regional Air Mobility (RAM) markets. The design targets a range of 250+ km, leveraging the aerodynamic efficiency of BWB configuration and electric propulsion to achieve a zero-carbon footprint and reduced noise, meeting CS-23 Level 3 certification standards.</p>
-    <img src="./media/evtol_bwb/fig1.png" alt="Range-MTOW Data of Similar Aircrafts (Fig. 1)" class="project-image w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig1.png', 'Range-MTOW Data of Similar Aircrafts (Fig. 1)')">
-    <img src="./media/evtol_bwb/fig2.png" alt="Mass Breakdown for eVTOL BWB Aircraft (Fig. 2)" class="project-image w-full h-48 object-contain rounded cursor-pointer mt-2" onclick="openModal('./media/evtol_bwb/fig2.png', 'Mass Breakdown for eVTOL BWB Aircraft (Fig. 2)')">
-  </div>
 
-  <div class="project-card hologram">
-    <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Advanced Design and Analysis Methodology</h3>
-    <div class="space-y-3">
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Developed a 6-seater eVTOL BWB configuration with a 13.9m wingspan, integrating distributed electric propulsion with ducted fans for enhanced thrust and noise reduction, optimized for a 250+ km range and 83.3 m/s cruising speed.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Conducted constraint analysis using modified mathematical models from hovercraft and fixed-wing aircraft, selecting a wing loading of 700 N/m², disc loading of 4000 N/m², and power loading of 12 N/hp, validated via Python scripts.</span>
-      </div>
-      <div class="flex items-center">
-        <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Performed CFD simulations with ANSYS Fluent (RANS, SST k-ω model, y+ <1) to assess aerodynamic performance, achieving a maximum L/D ratio of 25.66 at 3° AOA and a stall speed of 33.5 m/s, ensuring CS-23 compliance.</span>
-      </div>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-design-carousel" style="transform: translateX(0%);">
-        <img src="./media/evtol_bwb/fig3.png" alt="Constraint Analysis Plot (Fig. 3)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig3.png', 'Constraint Analysis Plot (Fig. 3)')">
-      </div>
-      <button onclick="slideCarousel('evtol-design-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('evtol-design-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-cfd-carousel" style="transform: translateX(0%);">
-        <img src="./media/evtol_bwb/fig17.png" alt="Coefficient of Pressure at -5° AOA (Fig. 17)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig17.png', 'Coefficient of Pressure at -5° AOA (Fig. 17)')">
-        <img src="./media/evtol_bwb/fig18.png" alt="Coefficient of Pressure at 0° AOA (Fig. 18)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig18.png', 'Coefficient of Pressure at 0° AOA (Fig. 18)')">
-        <img src="./media/evtol_bwb/fig19.png" alt="Coefficient of Pressure at 3° AOA (Fig. 19)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig19.png', 'Coefficient of Pressure at 3° AOA (Fig. 19)')">
-        <img src="./media/evtol_bwb/fig20.png" alt="Coefficient of Pressure at 15° AOA (Fig. 20)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig20.png', 'Coefficient of Pressure at 15° AOA (Fig. 20)')">
-      </div>
-      <button onclick="slideCarousel('evtol-cfd-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('evtol-cfd-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-  </div>
 
-  <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Optimized Performance and Innovation</h3>
-    <div class="space-y-4">
-      <div class="bg-green-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Aerodynamic Excellence</div>
-        <div class="text-xs">Achieved a maximum L/D ratio of 25.66 at 3° AOA, with a lift coefficient of 0.304 and drag coefficient of 0.011885, surpassing initial targets of 20 L/D and reducing drag by 37% compared to baseline BWB designs.</div>
-      </div>
-      <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Performance Metrics</div>
-        <div class="text-xs">Designed for a 3266 kg MTOW, the aircraft meets a 250+ km range with a cruising speed of 83.3 m/s at 3000m altitude, and a stall speed of 33.5 m/s, fully compliant with CS-23 regulations.</div>
-      </div>
-      <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Sustainability Impact</div>
-        <div class="text-xs">Leveraged electric propulsion with a 400 Wh/kg battery density, achieving zero carbon emissions and optimized power distribution (hover: 2068.55 kW, cruise: 468.73 kW), positioning it as a leader in sustainable aviation.</div>
-      </div>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-performance-carousel" style="transform: translateX(0%);">
-        <img src="./media/evtol_bwb/fig21.png" alt="Variation of Local Lift Distribution (Fig. 21)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig21.png', 'Variation of Local Lift Distribution (Fig. 21)')">
-        <img src="./media/evtol_bwb/fig22.png" alt="Variation of Induced Drag Coefficient (Fig. 22)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig22.png', 'Variation of Induced Drag Coefficient (Fig. 22)')">
-        <img src="./media/evtol_bwb/fig23.png" alt="Variation of Lift to Drag Ratio (Fig. 23)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig23.png', 'Variation of Lift to Drag Ratio (Fig. 23)')">
-      </div>
-      <button onclick="slideCarousel('evtol-performance-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('evtol-performance-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
-      <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="evtol-analysis-carousel" style="transform: translateX(0%);">
-        <img src="./media/evtol_bwb/fig24.png" alt="Variation of Coefficient of Lift (Fig. 24)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig24.png', 'Variation of Coefficient of Lift (Fig. 24)')">
-        <img src="./media/evtol_bwb/fig25.png" alt="Variation of Coefficient of Drag (Fig. 25)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig25.png', 'Variation of Coefficient of Drag (Fig. 25)')">
-        <img src="./media/evtol_bwb/fig26.png" alt="Variation of Drag with Lift (Fig. 26)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig26.png', 'Variation of Drag with Lift (Fig. 26)')">
-        <img src="./media/evtol_bwb/fig27.png" alt="Variation of Pitching Moment Coefficient (Fig. 27)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig27.png', 'Variation of Pitching Moment Coefficient (Fig. 27)')">
-        <img src="./media/evtol_bwb/fig28.png" alt="Power Requirement for Each Flight Phase (Fig. 28)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig28.png', 'Power Requirement for Each Flight Phase (Fig. 28)')">
-        <img src="./media/evtol_bwb/fig29.png" alt="Time Duration for Each Flight Phase (Fig. 29)" class="carousel-item flex-shrink-0 w-full h-full object-contain rounded cursor-pointer" onclick="openModal('./media/evtol_bwb/fig29.png', 'Time Duration for Each Flight Phase (Fig. 29)')">
-      </div>
-      <button onclick="slideCarousel('evtol-analysis-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
-      <button onclick="slideCarousel('evtol-analysis-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
-    </div>
-    <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request eVTOL BWB Research Paper" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Research Paper</a>
-    <a href="./assets/evtol_bwb_presentation.pdf" download class="block mt-2 bg-[var(--success-green)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Download Presentation</a>
-  </div>
-</div>
 
-<style>
-  .carousel-container {
-    display: flex;
-    width: 100%;
-    height: 200px;
-  }
-  .carousel-item {
-    min-width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-  }
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-  }
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-  }
-  .modal-caption {
-    text-align: center;
-    color: white;
-    font-size: 16px;
-    margin-top: 10px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-  }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-  }
-</style>
-
-<script>
-  function slideCarousel(id, direction) {
-    const carousel = document.getElementById(id);
-    let currentTransform = parseInt(carousel.style.transform.replace('translateX(', '').replace('%)', '') || 0);
-    const numItems = carousel.children.length;
-    currentTransform += direction * 100;
-    if (currentTransform < -100 * (numItems - 1)) currentTransform = 0;
-    if (currentTransform > 0) currentTransform = -100 * (numItems - 1);
-    carousel.style.transition = 'transform 0.5s ease-in-out';
-    carousel.style.transform = `translateX(${currentTransform}%)`;
-  }
-
-  function autoSlide(id) {
-    let index = 0;
-    const carousel = document.getElementById(id);
-    const numItems = carousel.children.length;
-    if (numItems <= 1) return; // Skip auto-slide for single-item carousels
-    setInterval(() => {
-      index = (index + 1) % numItems;
-      carousel.style.transition = 'transform 0.5s ease-in-out';
-      carousel.style.transform = `translateX(-${index * 100}%)`;
-    }, 5000);
-  }
-
-  function openModal(src, caption) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    let description = '';
-    switch (caption) {
-      case 'Range-MTOW Data of Similar Aircrafts (Fig. 1)':
-        description = 'Comparative data of range and maximum takeoff weight for similar eVTOL aircrafts to establish design benchmarks.';
-        break;
-      case 'Mass Breakdown for eVTOL BWB Aircraft (Fig. 2)':
-        description = 'Detailed mass distribution including structure, propulsion, and payload for the BWB aircraft design.';
-        break;
-      case 'Constraint Analysis Plot (Fig. 3)':
-        description = 'Plot showing design constraints for wing loading, power loading, and disc loading to optimize performance.';
-        break;
-      case 'Coefficient of Pressure at -5° AOA (Fig. 17)':
-        description = 'Pressure distribution across the BWB wing at -5° angle of attack.';
-        break;
-      case 'Coefficient of Pressure at 0° AOA (Fig. 18)':
-        description = 'Pressure distribution at 0° angle of attack, representing a neutral condition.';
-        break;
-      case 'Coefficient of Pressure at 3° AOA (Fig. 19)':
-        description = 'Pressure distribution at 3° angle of attack, representing cruising conditions.';
-        break;
-      case 'Coefficient of Pressure at 15° AOA (Fig. 20)':
-        description = 'Pressure distribution at 15° angle of attack, near stall conditions.';
-        break;
-      case 'Variation of Local Lift Distribution (Fig. 21)':
-        description = 'Lift distribution variation across the wing at different angles of attack.';
-        break;
-      case 'Variation of Induced Drag Coefficient (Fig. 22)':
-        description = 'Change in induced drag with varying angles of attack.';
-        break;
-      case 'Variation of Lift to Drag Ratio (Fig. 23)':
-        description = 'L/D ratio variation, highlighting maximum efficiency at 3° AOA.';
-        break;
-      case 'Variation of Coefficient of Lift (Fig. 24)':
-        description = 'Coefficient of lift variation with angle of attack.';
-        break;
-      case 'Variation of Coefficient of Drag (Fig. 25)':
-        description = 'Coefficient of drag variation with angle of attack.';
-        break;
-      case 'Variation of Drag with Lift (Fig. 26)':
-        description = 'Drag polar showing drag vs. lift relationship.';
-        break;
-      case 'Variation of Pitching Moment Coefficient (Fig. 27)':
-        description = 'Pitching moment variation with angle of attack for stability analysis.';
-        break;
-      case 'Power Requirement for Each Flight Phase (Fig. 28)':
-        description = 'Power needs for takeoff, cruise, hover, and landing phases.';
-        break;
-      case 'Time Duration for Each Flight Phase (Fig. 29)':
-        description = 'Time allocation for each flight phase to meet range and performance goals.';
-        break;
-    }
-    modal.innerHTML = `
-      <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
-      <img src="${src}" alt="${caption}" class="modal-content">
-      <div class="modal-caption">${caption}<br>${description}</div>
-    `;
-    document.body.appendChild(modal);
-    modal.style.display = 'block';
-  }
-
-  // Initialize auto-slide for Project 5 carousels
-  document.addEventListener('DOMContentLoaded', () => {
-    autoSlide('evtol-design-carousel');
-    autoSlide('evtol-cfd-carousel');
-    autoSlide('evtol-performance-carousel');
-    autoSlide('evtol-analysis-carousel');
-  });
-</script>
-
+ 
 
 
      
@@ -3733,6 +3734,7 @@
 </body>
 </html>
 ```
+
 
 
 
