@@ -417,8 +417,7 @@
         <a href="#aerospace" class="nav-item orbitron">MY AEROSPACE PROJECTS</a>
          
         <a href="game.html" class="nav-item orbitron">PLAY MY GAME</a>
-        <a href="#interests" class="nav-item orbitron">MUSIC</a>
-         
+               
         <a href="#contact" class="nav-item orbitron">CONTACT</a>
       </div>
     </div>
@@ -476,15 +475,15 @@
             <img src="./assets/back_book_cover.jpg" alt="Zero Over Zero Back Cover" class="project-image w-72 h-auto rounded cursor-pointer" onclick="openModal('./assets/back_book_cover.jpg', 'Zero Over Zero Back Cover')">
           </div>
                <p class="text-base leading-relaxed mb-6 max-w-3xl mx-auto">
-                I write because I believe words can do more than explain — they can open doors. 
+                I write because I believe ideas can inspire, let me see the world from new angles, and to explore how perspective can change what we understand. It makes everything feel a little new.
                 My book, <em>Zero Over Zero</em>, grew out of a fascination with the questions that don’t have easy answers: 
-                how we find meaning in uncertainty, how identity bends with time, and how culture and technology constantly reshape what it means to be human.
+                how we find meaning in uncertainty, how identity evolves with time, and how culture and technology constantly reshape what it means to be human.
                 <br><br>
                 It’s not just philosophy for philosophy’s sake. For me, writing is a way of designing — of building frameworks that link imagination to reality, ideas to action. 
-                Aerospace engineering taught me precision and structure; writing teaches me wonder and perspective. 
-                Together, they push me to think beyond limits, whether in science, design, or storytelling.
+                Aerospace engineering teaches me how to analyze complex systems, solve problems, and think through how pieces fit together; writing teaches me wonder and perspective. 
+                Together, they push me to try, explore, and imagine,  whether in science, design, or storytelling.
                 <br><br>
-                <em>Zero Over Zero</em> is my way of exploring those in-between spaces — between progress and reflection, certainty and mystery. 
+                <em>Zero Over Zero</em> is my way of exploring those in-between spaces — between progress and reflection, certainty and possibility. 
                 It’s a book of questions more than answers, written for anyone who feels the tension between freedom and the unknown, and still chooses to create with heart.
               </p>
 
@@ -493,8 +492,7 @@
           </p>
           <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request for Advance Reader Copy of Zero Over Zero" class="bg-[var(--primary-blue)] text-black px-8 py-3 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all transform hover:scale-105 orbitron">Request Advance Reader Copy</a>
-            <a href="./assets/zero_over_zero_overview.pdf" download class="bg-[var(--success-green)] text-black px-8 py-3 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all transform hover:scale-105 orbitron">Download Book Overview</a>
-          </div>
+             
   
     </div>
   </section>
@@ -521,96 +519,159 @@
       <span class="status-indicator status-active"></span>AEROSPACE ENGINEERING PORTFOLIO
     </h2>
     
- 
-<!-- Project 1: Master's Research - CS25 Aerial Firefighter -->
+ <!-- Project 1: Master's Research - CS25 Aerial Firefighter -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+  <!-- WHAT Section -->
   <div class="project-card">
     <div class="hud-corner tl"></div>
     <div class="hud-corner tr"></div>
     <div class="hud-corner bl"></div>
     <div class="hud-corner br"></div>
-    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Overall Design and Performance Assessment Simulator for CS-25 Scooper Aerial Firefighter</h3>
-    <p class="text-sm mb-4">As climate-driven wildfires intensify, legacy scoopers like the CL-415 are aging and out of production. This project explores retrofitting the ATR 72 into the FF72 amphibious scooper as a certifiable, cost-effective solution. Developed a physics-based Python framework for takeoff and climb analysis, using validated models to compare baseline and modified performance, supporting future MDAO integration like FAST-OAD for data-driven firefighting aircraft design insights.</p>
+    <h3 class="orbitron text-xl font-bold mb-4 text-accent-cyan">WHAT: Physics-Based Python Flight Simulator for ATR-72 Amphibious Retrofit (FF72)</h3>
+    <p class="text-sm mb-4">Developed a high-fidelity physics-based simulator to evaluate the feasibility of retrofitting the ATR 72 into the FF72 amphibious scooper. The framework models 6-DOF flight dynamics, transient takeoff/climb performance, and system interactions under CS-25/EASA certification constraints. This research supports firefighting aircraft design through modular integration with FAST-OAD for mission-level trade studies.</p>
     <img src="./assets/ff72_concept.png" alt="Canadair CL-415 and Positive FF72" class="project-image w-full h-48 object-contain mt-2 rounded cursor-pointer" onclick="openModal('./assets/ff72_concept.png', 'Canadair CL-415 and Positive FF72')">
+    <p class="text-xs text-center mt-1"> ATR-72 retrofit FF72 concept (From Positive Aviation).</p>
     <img src="./assets/water_scooper_mission_profile.png" alt="Standard Mission Profile for a Firefighting Sortie" class="project-image w-full h-32 object-contain mt-2 rounded cursor-pointer" onclick="openModal('./assets/standard_mission_profile.png', 'Standard Mission Profile for a Firefighting Sortie')">
+    <p class="text-xs text-center mt-1">Typical firefighting sortie mission profile for amphibious scoopers.</p>
   </div>
 
+  <!-- HOW Section -->
   <div class="project-card hologram">
     <h3 class="orbitron text-xl font-bold mb-4 text-warning-amber">HOW: Modular Python-Based 6-DOF Simulation Framework</h3>
     <div class="space-y-3">
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Built a high-fidelity takeoff simulator in Python, interconnecting modules for atmospheric conditions, aircraft parameters, aerodynamics, landing gear forces, propulsion thrust, PID controllers, 6-DOF dynamics, and iterative simulation with event detection for phase transitions like liftoff and screen height.</span>
+        <span class="text-sm">Implemented aircraft dynamics with adaptive RK45 solver, event-driven logic for liftoff, screen height, and alpha-floor protections, ensuring CS-25 compliance in takeoff scenarios.</span>
       </div>
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Utilized XDSM diagrams to visualize modular data flows and flowcharts for each model, enabling precise transient simulations in AEO, OEI (engine failure at critical points), and RTO scenarios under certification constraints.</span>
+        <span class="text-sm">Developed physics-based subsystem models: aerodynamics (CL/CD interpolation, ground effect, pitching moments), propulsion (turboprop efficiency, OEI asymmetry), landing gear (spring-damper ground dynamics), and pilot-controlled stability modes.</span>
       </div>
       <div class="flex items-center">
         <div class="w-4 h-4 border border-accent-cyan mr-3"></div>
-        <span class="text-sm">Incorporated pilot inputs, environmental factors (e.g., ISA deviations, wind shear), and validation against empirical data to quantify retrofit effects on performance and stability.</span>
+        <span class="text-sm">Designed XDSM-based modular architecture for FAST-OAD integration, allowing future extensions to amphibious takeoff/landing and water-drop firefighting scenarios.</span>
       </div>
     </div>
     <!-- Fixed XDSM Diagram Upper Part -->
     <div class="mt-4">
       <img src="./assets/global_xdsm_diagram.png" alt="Global XDSM Diagram Illustrating Modular Interconnection" class="project-image w-full h-32 object-contain rounded cursor-pointer" onclick="openModal('./assets/global_xdsm_diagram.png', 'Global XDSM Diagram Illustrating Modular Interconnection')">
+      <p class="text-xs text-center mt-1">XDSM diagram showing modular architecture of aircraft subsystems models within the simulator.</p>
     </div>
-    <!-- Carousel Lower Part (Focused on Event Detection, Dynamics, Controller) -->
-    <div class="relative overflow-hidden mt-2 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+    <!-- Carousel Lower Part -->
+    <div class="relative overflow-hidden mt-2 rounded-lg border border-[var(--accent-cyan)]" style="height: 240px;">
       <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="models-carousel" style="transform: translateX(0%);">
-        <img src="./assets/dynamics_model_flowchart.png" alt="Flowchart Detailing the Dynamics Model’s State Integration and Event Detection" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/dynamics_model_flowchart.png', 'Flowchart Detailing the Dynamics Model’s State Integration and Event Detection')">
-        <img src="./assets/controller_model_flowchart.png" alt="Flowchart Outlining the Controller Model’s PID Regulation and Mode Switch" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/controller_model_flowchart.png', 'Flowchart Outlining the Controller Model’s PID Regulation and Mode Switch')">
-        <img src="./assets/simulation_framework_flowchart.png" alt="Flowchart for the Simulation Framework’s Iterative State Updates and Performance Evaluation" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/simulation_framework_flowchart.png', 'Flowchart for the Simulation Framework’s Iterative State Updates and Performance Evaluation')">
-        <img src="./assets/atmospheric_model_flowchart.png" alt="Flowchart Outlining the Atmospheric Model’s Progression from Altitude Input to Environmental Outputs" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/atmospheric_model_flowchart.png', 'Flowchart Outlining the Atmospheric Model’s Progression from Altitude Input to Environmental Outputs')">
-        <img src="./assets/aerodynamic_model_flowchart.png" alt="Flowchart for Aerodynamic Model" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/aerodynamic_model_flowchart.png', 'Flowchart for Aerodynamic Model')">
-        <img src="./assets/landing_gear_model_flowchart.png" alt="Flowchart for Landing Gear Model’s Force Calculation and Equilibrium Process" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/landing_gear_model_flowchart.png', 'Flowchart for Landing Gear Model’s Force Calculation and Equilibrium Process')">
-        <img src="./assets/propulsion_model_flowchart.png" alt="Flowchart for Propulsion Model" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/propulsion_model_flowchart.png', 'Flowchart for Propulsion Model')">
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/dynamics_model_flowchart.png" alt="Dynamics Model Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/dynamics_model_flowchart.png', 'Flowchart Detailing the Dynamics Model’s State Integration and Event Detection')">
+          <p class="text-xs mt-1">Dynamics model flowchart showing state integration and event detection logic.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/controller_model_flowchart.png" alt="Controller Model Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/controller_model_flowchart.png', 'Flowchart Outlining the Controller Model’s PID Regulation and Mode Switch')">
+          <p class="text-xs mt-1">PID controller model regulating pitch, thrust, and mode switching for stability.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/simulation_framework_flowchart.png" alt="Simulation Framework Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/simulation_framework_flowchart.png', 'Flowchart for the Simulation Framework’s Iterative State Updates and Performance Evaluation')">
+          <p class="text-xs mt-1">Framework flowchart for iterative state updates and certification performance evaluation.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/atmospheric_model_flowchart.png" alt="Atmospheric Model Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/atmospheric_model_flowchart.png', 'Flowchart Outlining the Atmospheric Model’s Progression from Altitude Input to Environmental Outputs')">
+          <p class="text-xs mt-1">Atmospheric model progression from altitude inputs to wind/temperature outputs.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/aerodynamic_model_flowchart.png" alt="Aerodynamic Model Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/aerodynamic_model_flowchart.png', 'Flowchart for Aerodynamic Model')">
+          <p class="text-xs mt-1">Aerodynamic model flowchart with lift/drag interpolation and ground effect.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/landing_gear_model_flowchart.png" alt="Landing Gear Model Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/landing_gear_model_flowchart.png', 'Flowchart for Landing Gear Model’s Force Calculation and Equilibrium Process')">
+          <p class="text-xs mt-1">Landing gear model handling force equilibrium and ground dynamics.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/propulsion_model_flowchart.png" alt="Propulsion Model Flowchart" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/propulsion_model_flowchart.png', 'Flowchart for Propulsion Model')">
+          <p class="text-xs mt-1">Turboprop propulsion model including efficiency and OEI thrust asymmetry.</p>
+        </div>
       </div>
       <button onclick="slideCarousel('models-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
       <button onclick="slideCarousel('models-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
     </div>
   </div>
 
+  <!-- RESULTS Section -->
   <div class="project-card">
-    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Takeoff Case Studies and Sensitivity Analysis</h3>
+    <h3 class="orbitron text-xl font-bold mb-4 text-success-green">RESULTS: Performance Validation and Sensitivity Analysis</h3>
     <div class="space-y-4">
       <div class="bg-green-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">AEO/OEI Performance Profiles</div>
-        <div class="text-xs">Generated evolution profiles for altitude, AoA, pitch, thrust, velocity, and longitudinal acceleration in AEO and OEI (engine failure at 10s), validating transient behaviors against empirical data for accurate prediction.</div>
+        <div class="text-sm font-bold">Validated Takeoff Dynamics</div>
+        <div class="text-xs">Compared AEO and OEI (engine-out at 10s) simulations with ATR flight manuals and operational data, ensuring transient behaviors matched empirical observations.</div>
       </div>
       <div class="bg-blue-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Trajectories and Ground Run</div>
-        <div class="text-xs">Simulated ground run and flight trajectories for AEO (35ft screen height) and OEI degraded climb, demonstrating regulatory compliance and retrofit viability.</div>
+        <div class="text-sm font-bold">Trajectory and Compliance</div>
+        <div class="text-xs">Generated ground run and climb trajectories, verifying compliance with CS-25 screen height and degraded OEI climb requirements.</div>
       </div>
       <div class="bg-purple-900 bg-opacity-20 p-3 rounded">
-        <div class="text-sm font-bold">Sensitivity Insights</div>
-        <div class="text-xs">Analyzed TOFL variation with MTOW at sea level, offering scalable optimization insights for future waterborne and full-mission extensions.</div>
+        <div class="text-sm font-bold">Sensitivity Studies</div>
+        <div class="text-xs">Quantified effects of MTOW, ISA deviation, and pilot inputs on takeoff field length and climb gradients, providing scalable insights for amphibious firefighting retrofit viability.</div>
       </div>
     </div>
-    <!-- Carousel for results with GIFs prioritized (duplicated for longer display) -->
-    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 200px;">
+    <!-- Carousel for results -->
+    <div class="relative overflow-hidden mt-4 rounded-lg border border-[var(--accent-cyan)]" style="height: 240px;">
       <div class="carousel-container flex transition-transform duration-500 ease-in-out" id="results-carousel" style="transform: translateX(0%);">
-        <img src="./assets/altitude_aeo.png" alt="Altitude Evolution (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/altitude_aeo.png', 'Altitude Evolution (AEO)')">
-        <img src="./assets/altitude_oei.png" alt="Altitude Evolution (OEI)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/altitude_oei.png', 'Altitude Evolution (OEI)')">
-        <img src="./assets/aoa_aeo.png" alt="Angle of Attack (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/aoa_aeo.png', 'Angle of Attack (AEO)')">
-        <img src="./assets/pitch_aeo.png" alt="Pitch Angle (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/pitch_aeo.png', 'Pitch Angle (AEO)')">
-        <img src="./assets/thrust_aeo.png" alt="Thrust Profile (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/thrust_aeo.png', 'Thrust Profile (AEO)')">
-        <img src="./assets/thrust_oei.png" alt="Thrust Profile (OEI)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/thrust_oei.png', 'Thrust Profile (OEI)')">
-        <img src="./assets/velocity_aeo.png" alt="Velocity Profile (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/velocity_aeo.png', 'Velocity Profile (AEO)')">
-        <img src="./assets/velocity_oei.png" alt="Velocity Profile (OEI)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/velocity_oei.png', 'Velocity Profile (OEI)')">
-        <img src="./assets/long_accel_aeo.png" alt="Longitudinal Acceleration (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/long_accel_aeo.png', 'Longitudinal Acceleration (AEO)')">
-        <img src="./assets/long_accel_oei.png" alt="Longitudinal Acceleration (OEI)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/long_accel_oei.png', 'Longitudinal Acceleration (OEI)')">
-        <img src="./assets/takeoff_trajectory_aeo.gif" alt="Takeoff Ground Run and Flight Trajectory (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/takeoff_trajectory_aeo.gif', 'Takeoff Ground Run and Flight Trajectory (AEO)')">
-        <img src="./assets/takeoff_trajectory_oei.gif" alt="Takeoff Ground Run and Degraded Climb (OEI)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/takeoff_trajectory_oei.gif', 'Takeoff Ground Run and Degraded Climb (OEI)')">
-        <img src="./assets/tofl_mtow_sensitivity.png" alt="Variation of Takeoff Field Length (TOFL) with MTOW for ATR 72 at Sea Level" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/tofl_mtow_sensitivity.png', 'Variation of Takeoff Field Length (TOFL) with MTOW for ATR 72 at Sea Level')">
-        <img src="./assets/takeoff_trajectory_aeo.gif" alt="Takeoff Ground Run and Flight Trajectory (AEO)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/takeoff_trajectory_aeo.gif', 'Takeoff Ground Run and Flight Trajectory (AEO)')">
-        <img src="./assets/takeoff_trajectory_oei.gif" alt="Takeoff Ground Run and Degraded Climb (OEI)" class="carousel-item flex-shrink-0 w-full h-48 object-contain rounded cursor-pointer" onclick="openModal('./assets/takeoff_trajectory_oei.gif', 'Takeoff Ground Run and Degraded Climb (OEI)')">
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/altitude_aeo.png" alt="Altitude Evolution (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/altitude_aeo.png', 'Altitude Evolution (AEO)')">
+          <p class="text-xs mt-1">Altitude evolution during All Engines Operating (AEO) takeoff.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/altitude_oei.png" alt="Altitude Evolution (OEI)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/altitude_oei.png', 'Altitude Evolution (OEI)')">
+          <p class="text-xs mt-1">Altitude profile with One Engine Inoperative (OEI) at 10s.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/aoa_aeo.png" alt="Angle of Attack (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/aoa_aeo.png', 'Angle of Attack (AEO)')">
+          <p class="text-xs mt-1">Angle of attack progression during AEO takeoff.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/pitch_aeo.png" alt="Pitch Angle (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/pitch_aeo.png', 'Pitch Angle (AEO)')">
+          <p class="text-xs mt-1">Pitch angle evolution in nominal takeoff scenario.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/thrust_aeo.png" alt="Thrust Profile (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/thrust_aeo.png', 'Thrust Profile (AEO)')">
+          <p class="text-xs mt-1">Thrust evolution under AEO condition.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/thrust_oei.png" alt="Thrust Profile (OEI)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/thrust_oei.png', 'Thrust Profile (OEI)')">
+          <p class="text-xs mt-1">Asymmetric thrust profile under OEI condition.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/velocity_aeo.png" alt="Velocity Profile (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/velocity_aeo.png', 'Velocity Profile (AEO)')">
+          <p class="text-xs mt-1">Velocity evolution under AEO takeoff.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/velocity_oei.png" alt="Velocity Profile (OEI)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/velocity_oei.png', 'Velocity Profile (OEI)')">
+          <p class="text-xs mt-1">Velocity profile with OEI at 10s.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/long_accel_aeo.png" alt="Longitudinal Acceleration (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/long_accel_aeo.png', 'Longitudinal Acceleration (AEO)')">
+          <p class="text-xs mt-1">Longitudinal acceleration curve under AEO takeoff.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/long_accel_oei.png" alt="Longitudinal Acceleration (OEI)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/long_accel_oei.png', 'Longitudinal Acceleration (OEI)')">
+          <p class="text-xs mt-1">Acceleration degradation under OEI conditions.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/takeoff_trajectory_aeo.gif" alt="Takeoff Ground Run and Flight Trajectory (AEO)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/takeoff_trajectory_aeo.gif', 'Takeoff Ground Run and Flight Trajectory (AEO)')">
+          <p class="text-xs mt-1">AEO ground run and trajectory reaching 35 ft screen height.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/takeoff_trajectory_oei.gif" alt="Takeoff Ground Run and Degraded Climb (OEI)" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/takeoff_trajectory_oei.gif', 'Takeoff Ground Run and Degraded Climb (OEI)')">
+          <p class="text-xs mt-1">OEI ground run and climb trajectory.</p>
+        </div>
+        <div class="carousel-item flex-shrink-0 w-full text-center">
+          <img src="./assets/tofl_mtow_sensitivity.png" alt="TOFL vs MTOW Sensitivity" class="w-full h-40 object-contain rounded cursor-pointer" onclick="openModal('./assets/tofl_mtow_sensitivity.png', 'Variation of Takeoff Field Length (TOFL) with MTOW for ATR 72 at Sea Level')">
+          <p class="text-xs mt-1">Takeoff field length variation with MTOW at sea level.</p>
+        </div>
       </div>
       <button onclick="slideCarousel('results-carousel', -1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">‹</button>
       <button onclick="slideCarousel('results-carousel', 1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[var(--primary-blue)] text-black px-3 py-2 rounded opacity-75 hover:opacity-100 transition-opacity">›</button>
     </div>
     <a href="mailto:deepak.poudel@student.isae-supaero.fr?subject=Request CS-25 Simulator Report" class="block mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Request Full Report</a>
-    <a href="./assets/cs25_presentation.pdf" download class="block mt-2 bg-[var(--success-green)] text-black px-4 py-2 rounded font-bold hover:bg-[var(--accent-cyan)] transition-all w-full text-center orbitron">Download Presentation</a>
+  
   </div>
 </div>
 
@@ -637,14 +698,13 @@
 
   // Auto-slide function with longer interval for GIF focus
   function autoSlide(id) {
-    setInterval(() => slideCarousel(id, 1), 5000); // Slide every 5 seconds for longer display
+    setInterval(() => slideCarousel(id, 1), 6000); // Slide every 6 seconds for clarity
   }
 
   // Initialize auto-slide for both carousels
   autoSlide('models-carousel');
   autoSlide('results-carousel');
 </script>
- 
 
 
 
@@ -3226,20 +3286,7 @@
 
 
 
-
-<!-- Interests Section -->
-<section id="interests" class="section">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="orbitron text-4xl font-bold text-center mb-12">INTERESTS</h2>
-    <div class="grid grid-cols-1 gap-8">
-      <a href="music.html" class="project-card">
-        <h3 class="orbitron text-2xl font-bold mb-4">MUSIC</h3>
-        <p class="text-lg mb-6">Music is good stuff</p>
-        <button class="mt-4 bg-[var(--primary-blue)] text-black px-4 py-2 rounded font-bold orbitron">Play Music</button>
-      </a>
-    </div>
-  </div>
-</section>
+ 
 
 
 
@@ -3671,6 +3718,7 @@
 </body>
 </html>
 ```
+
 
 
 
